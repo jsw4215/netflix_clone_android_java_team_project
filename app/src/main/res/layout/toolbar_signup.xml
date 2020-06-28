@@ -1,0 +1,48 @@
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.Toolbar
+
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#0C0101"
+        android:theme="@style/Theme.AppCompat.Light.Dialog"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="125dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/back_arrowtopic"
+                app:layout_constraintStart_toEndOf="@+id/back_arrowtopic"
+                app:layout_constraintTop_toTopOf="@+id/back_arrowtopic"
+                app:srcCompat="@drawable/ic_netflix_icontext"
+                tools:ignore="VectorDrawableCompat" />
+
+            <ImageView
+                android:id="@+id/back_arrowtopic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </ImageView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+</merge>

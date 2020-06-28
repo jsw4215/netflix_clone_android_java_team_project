@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <include layout="@layout/toolbar_advertisement_top"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator"
+        app:ci_drawable="@drawable/black_radius"
+        app:ci_height="7dp"
+        app:ci_width="7dp"
+        app:ci_margin="4dp"
+        android:layout_above="@+id/adv_btn_go"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        tools:ignore="UnknownId" />
+
+    <Button
+        android:id="@+id/adv_btn_go"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/buttonColor"
+        android:backgroundTint="@color/buttonColor"
+        android:text="지금 이용하러 가기"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

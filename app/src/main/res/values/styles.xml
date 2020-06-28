@@ -1,13 +1,35 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
+
+    <style name="Custom_textinputlayout_filledbox" parent="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <!-- The color of the label when it is collapsed and the text field is active -->
+        <item name="hintTextColor">@color/colorPrimary</item>
+        <!-- The color of the label in all other text field states (such as resting and disabled) -->
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/loginColor</item>
+        <item name="colorControlNormal">@color/loginColor</item>
+
+        //added attributes
+        <item name="colorControlActivated">@color/loginColor</item>
+        <item name="colorControlHighlight">@color/loginColor</item>
+
+    </style>
+
+
+    <style name="MyHintStyle" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/loginColor</item>
+    </style>
+
     <style name="AppTheme.red">
         <item name="colorAccent">@color/design_default_color_error</item>
     </style>
