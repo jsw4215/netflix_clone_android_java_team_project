@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/profile_iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/netflix_logo_top_fix"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/profile_tv_select_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Netflix를 시철할 프로필을 선택하세요."
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile_iv_logo"
+        tools:ignore="MissingConstraints" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        tools:ignore="MissingConstraints"
+        android:layout_below="@+id/profile_tv_select_profile">
+
+    <ImageView
+        android:id="@+id/profile_iv_profile1"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="30dp"
+        android:layout_marginRight="0dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:src="@drawable/profile1"/>
+
+    <ImageView
+        android:id="@+id/profile_iv_profile2"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="30dp"
+        android:layout_marginLeft="0dp"
+        android:layout_row="0"
+        android:layout_column="1"
+        android:src="@drawable/profile1"/>
+
+    <ImageView
+        android:id="@+id/profile_iv_profile3"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:src="@drawable/profile1"/>
+
+    <ImageView
+        android:id="@+id/profile_iv_profile4"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginRight="0dp"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:src="@drawable/profile1"/>
+
+    </GridLayout>
+
+</RelativeLayout>

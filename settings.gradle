@@ -1,0 +1,2 @@
+rootProject.name='Netfilx_clone'
+include ':app'
