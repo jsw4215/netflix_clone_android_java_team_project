@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Netfilx_clone</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">홈</string>
+    <string name="title_search">검색</string>
+    <string name="title_coming_soon">공개 예정</string>
+    <string name="title_saved_contents">저장한 콘텐츠 목록</string>
+    <string name="title_else">더 보기</string>
+    <string name="rules"><u>이용 약관</u></string>
 </resources>

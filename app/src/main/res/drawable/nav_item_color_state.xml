@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:Android="http://schemas.Android.com/apk/res/Android" tools:ignore="NamespaceTypo">
+    <item Android:color="@color/white" Android:state_enabled="true" />
+    <item Android:color="@color/gray" Android:state_enabled="false" />
+</selector>
