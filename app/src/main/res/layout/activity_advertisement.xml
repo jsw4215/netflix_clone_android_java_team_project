@@ -7,10 +7,65 @@
     android:orientation="vertical"
     android:background="@color/black">
 
-    <include layout="@layout/toolbar_advertisement_top"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/adv_relLayout1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#0C0101">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/adv_tv_neflix_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="33dp"
+                    android:layout_margin="10dp"
+                    app:srcCompat="@drawable/ic_netflix_icontext"
+                    tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
+                <TextView
+                    android:id="@+id/adv_tv_personal_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인정보"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/adv_tv_customer_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객 센터"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/adv_tv_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="로그인"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vpPager"
+        android:layout_below="@+id/adv_relLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

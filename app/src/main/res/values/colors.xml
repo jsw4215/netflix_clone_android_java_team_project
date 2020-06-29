@@ -8,4 +8,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="gray">#5C5555</color>
+    <color name="blue">#011CBD</color>
+    <color name="membershipColor">#EDEEF3</color>
+
 </resources>

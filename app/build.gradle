@@ -38,4 +38,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:design:29.0.0'
     implementation 'me.relex:circleindicator:1.2.2'
+    implementation 'com.github.nitrico.stickyscrollview:stickyscrollview:1.0.2'
 }
