@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class ThirdFragment  extends Fragment {
@@ -36,7 +37,7 @@ public class ThirdFragment  extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
-        EditText tvLabel = (EditText) view.findViewById(R.id.editText);
+        TextView tvLabel = view.findViewById(R.id.editText);
         tvLabel.setText(page + " -- " + title);
         return view;
     }

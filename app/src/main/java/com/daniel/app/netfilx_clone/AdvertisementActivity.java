@@ -1,6 +1,10 @@
 package com.daniel.app.netfilx_clone;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,7 +14,9 @@ import androidx.viewpager.widget.ViewPager;
 import me.relex.circleindicator.CircleIndicator;
 
 public class AdvertisementActivity extends AppCompatActivity {
-    FragmentPagerAdapter adapterViewPager;
+
+    FragmentPagerAdapter mAdapterViewPager;
+    TextView mLogin;
 
 
     @Override
@@ -18,12 +24,22 @@ public class AdvertisementActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisement);
 
+        mLogin = findViewById(R.id.adv_tv_login);
+
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
+        mAdapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        vpPager.setAdapter(mAdapterViewPager);
 
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(vpPager);
+
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdvertisementActivity.this, SignInActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {

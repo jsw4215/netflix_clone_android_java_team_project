@@ -19,14 +19,15 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:hintTextColor="@color/loginColor"
+            app:boxStrokeColor="@color/loginColor"
+            android:textColorHint="@color/loginColor"
             android:background="#1A1A1A"
             android:layout_width="0dp"
             android:layout_height="61dp"
             android:padding="1dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:textColorHint="#A8A6A6"
             app:boxBackgroundMode="filled"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
@@ -42,6 +43,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="@null"
@@ -54,7 +56,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            app:hintTextColor="@color/loginColor"
+            app:boxStrokeColor="@color/loginColor"
+            android:textColorHint="@color/loginColor"
             android:layout_width="0dp"
             android:layout_height="61dp"
             android:layout_marginStart="32dp"
@@ -62,7 +66,6 @@
             android:padding="1dp"
             android:layout_marginEnd="32dp"
             android:background="#1A1A1A"
-            android:textColorHint="#A8A6A6"
             app:boxBackgroundMode="filled"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
@@ -79,6 +82,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@null"
                 android:hint="비밀번호"
                 android:inputType="textPassword"
