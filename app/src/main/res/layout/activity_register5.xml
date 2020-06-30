@@ -9,14 +9,15 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/reg_top_toolbar"
+        android:id="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:background="@color/white">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -24,7 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="140dp"
+                android:layout_alignParentStart="true"
                 app:srcCompat="@drawable/ic_netflix_icontext"
                 tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
@@ -32,7 +33,9 @@
                 android:id="@+id/adv_tv_customer_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_toStartOf="@+id/adv_tv_login"
                 android:text="고객 센터"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -41,26 +44,29 @@
                 android:id="@+id/adv_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
                 android:text="로그아웃"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
 
     <ScrollView
-        android:layout_below="@+id/reg_top_toolbar"
+        android:layout_below="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/reg_lin_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="35dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp">
 
@@ -68,17 +74,107 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3/3단계"
-            android:textColor="@color/black"
-            android:layout_marginLeft="7dp"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:text="신용카드나 체크카드 등록"
-            android:paddingEnd="70dp"
-            android:layout_margin="7dp"/>
+            android:paddingEnd="70dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/bc_card"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/lotte"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/shinhan"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/kb_card"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/keb"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/nh"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:padding="5dp"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/samsung"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/hyundai"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+            <ImageView
+                android:src="@drawable/hana"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/light_grey_border"
+                android:layout_width="40dp"
+                android:layout_height="25dp"/>
+
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -86,8 +182,8 @@
             app:hintTextColor="@color/loginColor"
             app:boxStrokeColor="@color/loginColor"
             android:textColorHint="@color/loginColor"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:hint="카드 번호">
             <com.google.android.material.textfield.TextInputEditText
                 android:textCursorDrawable="@drawable/cursor_color"
@@ -102,8 +198,8 @@
             app:hintTextColor="@color/loginColor"
             app:boxStrokeColor="@color/loginColor"
             android:textColorHint="@color/loginColor"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:hint="만료 날짜(월/연도: 05/17)">
             <com.google.android.material.textfield.TextInputEditText
                 android:textCursorDrawable="@drawable/cursor_color"
@@ -118,8 +214,8 @@
             app:hintTextColor="@color/loginColor"
             app:boxStrokeColor="@color/loginColor"
             android:textColorHint="@color/loginColor"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:hint="이름">
             <com.google.android.material.textfield.TextInputEditText
                 android:textCursorDrawable="@drawable/cursor_color"
@@ -132,6 +228,7 @@
         <Spinner
             android:id="@+id/reg_card_birth_date"
             android:entries="@array/date"
+            android:background="@drawable/grey_border"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxCornerRadiusTopEnd="10dp"
@@ -139,8 +236,8 @@
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
             android:padding="17dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:spinnerMode="dropdown"
             android:layout_gravity="center"/>
 
@@ -149,8 +246,8 @@
             android:background="@drawable/grey_border"
             android:entries="@array/month"
             android:padding="17dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:spinnerMode="dropdown"
@@ -163,8 +260,8 @@
             app:hintTextColor="@color/loginColor"
             app:boxStrokeColor="@color/loginColor"
             android:textColorHint="@color/loginColor"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:hint="출생연도">
             <com.google.android.material.textfield.TextInputEditText
                 android:textCursorDrawable="@drawable/cursor_color"
@@ -184,29 +281,26 @@
 
             <TextView
                 android:id="@+id/reg_bill_membership1"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/loginColor"
                 android:text="첫 30일"
-                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/reg_bill_membership2"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textColor="@color/loginColor"
                 android:text="12,000원 9,500원"
                 android:textStyle="bold"
-                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/reg_bill_membership3"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="스탠다드 멤버십"
-                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -223,7 +317,7 @@
 
             <TextView
                 android:id="@+id/reg_bill_membership4"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textColor="@color/loginColor"
                 android:text="30일 이후"
                 android:layout_margin="5dp"
@@ -232,7 +326,7 @@
 
             <TextView
                 android:id="@+id/reg_bill_membership5"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textColor="@color/loginColor"
                 android:text="월 9,500원"
                 android:textStyle="bold"
@@ -242,7 +336,7 @@
 
             <TextView
                 android:id="@+id/reg_bill_membership6"
-                android:textSize="20sp"
+                android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="베이식 멤버십"
                 android:layout_margin="5dp"
@@ -252,46 +346,44 @@
         </LinearLayout>
 
         <CheckBox
-            android:layout_margin="10dp"
+            android:layout_marginTop="15dp"
             android:text="19세 이상임을 증명하며, 아래의 약관에 모두 동의합니다."
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <View
+            android:layout_margin="3dp"
             android:layout_width="match_parent"
             android:layout_height="0.3dp"
             android:background="@color/gray" />
 
         <CheckBox
-            android:layout_margin="10dp"
             android:text="Netflix 이용 약관 및 개인정보 처리방침에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
-            android:layout_margin="10dp"
             android:text="본인의 개인 정보를 제3자에 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
-            android:layout_margin="10dp"
             android:text="본인의 개인 정보를 해외로 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
-            android:layout_margin="10dp"
             android:text="본인의 개인 정보를 결제 서비스업체에 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/reg_tv_bottom"
-            android:textSize="15sp"
+            android:textSize="12sp"
             android:textColor="@color/loginColor"
             android:text="멤버십은 언제든지 해지하실 수 있습니다. 멤버십을 해지하지 않으시면 Netflix에서 자동으로 멤버십을 연장하며, 멤버십 요금(현 9,500원)이 등록하신 결제 수단으로 매월 청구됩니다. 한 달을 채우지 않고 해지하시는 경우, 남은 기간에 대한 금액은 환불해 드리지 않습니다."
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -300,7 +392,8 @@
             android:layout_below="@+id/reg_btn_start_membership"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="90dp"
             android:backgroundTint="@color/buttonColor"
             android:text="멤버십 시작"
             android:textSize="20sp"

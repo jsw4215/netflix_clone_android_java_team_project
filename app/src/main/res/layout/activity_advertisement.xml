@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:background="#0C0101">
+            android:background="@color/black">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         app:ci_drawable="@drawable/black_radius"
         app:ci_height="7dp"
         app:ci_width="7dp"
-        app:ci_margin="4dp"
+        app:ci_margin="7dp"
         android:layout_above="@+id/adv_btn_go"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -84,10 +84,11 @@
         android:id="@+id/adv_btn_go"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@color/buttonColor"
         android:backgroundTint="@color/buttonColor"
         android:text="지금 이용하러 가기"
+        android:textSize="17sp"
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         />

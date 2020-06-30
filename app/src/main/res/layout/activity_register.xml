@@ -9,14 +9,15 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/reg_top_toolbar"
+        android:id="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:background="@color/white">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -24,7 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="150dp"
+                android:layout_alignParentStart="true"
                 app:srcCompat="@drawable/ic_netflix_icontext"
                 tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
@@ -32,7 +33,9 @@
                 android:id="@+id/adv_tv_customer_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_toStartOf="@+id/adv_tv_login"
                 android:text="고객 센터"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -41,25 +44,27 @@
                 android:id="@+id/adv_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
                 android:text="로그인"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/reg_rel_layout1"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="160dp"
         android:layout_below="@+id/reg_top_toolbar">
 
         <ImageView
             android:id="@+id/reg_mid_check_mark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/check_mark"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="40dp"/>
@@ -72,14 +77,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reg_rel_layout1"
-        android:layout_margin="40dp">
+        android:layout_margin="30dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1/3단계"
         android:textColor="@color/black"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="7dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -87,7 +92,8 @@
             android:textSize="20sp"
             android:textColor="@color/black"
             android:text="원하는 멤버십을 선택하세요."
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,7 +112,7 @@
             android:text="무약정으로 언제든지 해지하실 수 있습니다."
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
-            android:textSize="20sp"/>
+            android:textSize="17sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -126,7 +132,7 @@
                 android:text="Netfilx의 모든 콘텐츠를 하나의 요금으로 즐기세요."
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -146,7 +152,7 @@
                 android:text="모든 디바이스에서 무제한으로 콘텐츠를 시청하세요."
                 android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -155,11 +161,12 @@
         android:id="@+id/reg_btn_next"
         android:layout_below="@+id/reg_lin_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:backgroundTint="@color/buttonColor"
         android:text="멤버십 요금제 보기"
+        android:textSize="17sp"
         android:textColor="@color/white"/>
 
 </RelativeLayout>

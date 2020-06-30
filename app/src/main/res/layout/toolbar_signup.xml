@@ -6,7 +6,7 @@
     <androidx.appcompat.widget.Toolbar
 
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:background="#0C0101"
         android:theme="@style/Theme.AppCompat.Light.Dialog"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">

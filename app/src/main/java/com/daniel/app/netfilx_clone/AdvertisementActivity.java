@@ -46,14 +46,15 @@ public class AdvertisementActivity extends AppCompatActivity {
         AdvBtnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(AdvertisementActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 3;
+        private static int NUM_ITEMS = 4;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -75,6 +76,8 @@ public class AdvertisementActivity extends AppCompatActivity {
                     return SecondFragment.newInstance(1, "Page # 2");
                 case 2:
                     return ThirdFragment.newInstance(2, "Page # 3");
+                case 3:
+                    return ThirdFragment.newInstance(3, "Page # 4");
                 default:
                     return null;
             }

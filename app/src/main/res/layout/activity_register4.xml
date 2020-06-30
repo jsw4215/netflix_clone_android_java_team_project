@@ -9,14 +9,15 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/reg_top_toolbar"
+        android:id="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:background="@color/white">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -24,7 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="140dp"
+                android:layout_alignParentStart="true"
                 app:srcCompat="@drawable/ic_netflix_icontext"
                 tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
@@ -32,7 +33,9 @@
                 android:id="@+id/adv_tv_customer_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_toStartOf="@+id/adv_tv_login"
                 android:text="고객 센터"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -41,30 +44,31 @@
                 android:id="@+id/adv_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
                 android:text="로그아웃"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/reg_rel_layout1"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:layout_height="120dp"
-        android:layout_below="@+id/reg_top_toolbar">
+        android:layout_margin="20dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/mem_top_toolbar">
 
         <ImageView
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:id="@+id/reg_mid_alert_mark"
             android:src="@drawable/ic_locker"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
 
     </RelativeLayout>
 
@@ -81,8 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3/3단계"
-            android:textColor="@color/black"
-            android:layout_marginLeft="7dp"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,15 +93,15 @@
             android:textSize="24sp"
             android:textColor="@color/black"
             android:text="결제 정보 등록"
-            android:paddingEnd="70dp"
-            android:layout_margin="7dp"/>
+            android:paddingEnd="70dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="결제가 완료되면 바로 멤버십이 시작됩니다."
-            android:layout_margin="7dp"
-            android:paddingEnd="100dp"
+            android:paddingEnd="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/black"
             android:textSize="18sp"/>
 
@@ -107,7 +110,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="광고도 없고 양정도 없는 부담 없는 서비스."
-            android:layout_margin="10dp"
             android:paddingEnd="10dp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -123,13 +125,14 @@
         android:layout_below="@+id/reg_lin_layout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:backgroundTint="@color/white"
-        android:background="@drawable/grey_border"
-        android:text="   신용카드 또는 체크카드"
+        android:background="@drawable/gray_card_ctn"
+        android:text="신용카드 또는 체크카드"
+        android:paddingStart="30dp"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
 </RelativeLayout>

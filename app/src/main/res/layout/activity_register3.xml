@@ -9,14 +9,15 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/reg_top_toolbar"
+        android:id="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:background="@color/white">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -24,7 +25,7 @@
                 android:layout_width="100dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="150dp"
+                android:layout_alignParentStart="true"
                 app:srcCompat="@drawable/ic_netflix_icontext"
                 tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
@@ -32,7 +33,9 @@
                 android:id="@+id/adv_tv_customer_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_toStartOf="@+id/adv_tv_login"
                 android:text="고객 센터"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -41,12 +44,14 @@
                 android:id="@+id/adv_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentEnd="true"
                 android:text="로그인"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -54,30 +59,33 @@
     android:id="@+id/reg_rel_layout1"
     android:background="@color/blue"
     android:layout_width="match_parent"
-    android:layout_margin="20dp"
-    android:padding="20dp"
-    android:layout_height="100dp"
-    android:layout_below="@+id/reg_top_toolbar">
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="40dp"
+        android:padding="10dp"
+        android:layout_marginRight="30dp"
+    android:layout_height="80dp"
+    android:layout_below="@+id/mem_top_toolbar">
 
     <ImageView
         android:layout_alignParentStart="true"
         android:id="@+id/reg_mid_alert_mark"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
         android:src="@drawable/ic_alert"
-        android:layout_width="40dp"
-        android:layout_height="40dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
 
 
     <TextView
         android:id="@+id/reg_mid_alert"
         android:layout_toEndOf="@+id/reg_mid_alert_mark"
         android:layout_centerVertical="true"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="@color/white"
-        android:text="스탠다드 멤버십을 한 달간
-        이용해 보세요. 무료입니다."
+        android:text="스탠다드 멤버십을 한 달간 이용해 보세요. 무료입니다."
         android:layout_margin="5dp"
+        android:paddingEnd="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -89,6 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/reg_rel_layout1"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp">
 
@@ -96,8 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2/3단계"
-            android:textColor="@color/black"
-            android:layout_marginLeft="7dp"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,14 +113,13 @@
             android:textSize="24sp"
             android:textColor="@color/black"
             android:text="지금 가입하셔서 멤버십을 시작하세요"
-            android:paddingEnd="70dp"
-            android:layout_margin="7dp"/>
+            android:paddingEnd="70dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Netflix 가입, 복잡하지 않아요! 복잡한 단계는 모두 없앴습니다."
-                android:layout_margin="7dp"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"/>
 
@@ -121,7 +128,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="계정을 등록하세요."
-            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"/>
@@ -158,7 +166,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:layout_margin="10dp"
+            android:layout_margin="3dp"
             android:text="예, Netflix 특별 할인 알림 메일을 보내주세요."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -171,8 +179,8 @@
         android:layout_below="@+id/reg_lin_layout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:backgroundTint="@color/buttonColor"
         android:text="다음"
         android:textSize="20sp"
