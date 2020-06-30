@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#A8A6A6</color>
-    <color name="colorPrimaryDark">#010C0A</color>
-    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
     <color name="loginColor">#A8A6A6</color>
     <color name="buttonColor">#FF0000</color>
     <color name="white">#FFFFFF</color>
@@ -10,5 +10,7 @@
     <color name="gray">#5C5555</color>
     <color name="blue">#011CBD</color>
     <color name="membershipColor">#EDEEF3</color>
-
+    <color name="light_dark">#090909</color>
+    <color name="design_default_color_error">#FF0000</color>
 </resources>
+

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.daniel.app.netfilx_clone.R;
+
 public class MoreActivity extends AppCompatActivity {
 
     @Override

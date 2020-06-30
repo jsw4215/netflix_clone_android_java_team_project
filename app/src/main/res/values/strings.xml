@@ -6,4 +6,6 @@
     <string name="title_saved_contents">저장한 콘텐츠 목록</string>
     <string name="title_else">더 보기</string>
     <string name="rules"><u>이용 약관</u></string>
+    <string name="loading">로딩중입니다.</string>
+    <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
 </resources>
