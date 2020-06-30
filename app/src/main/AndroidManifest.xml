@@ -17,7 +17,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".ui.more.MoreActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SavedContentsActivity" />
+        <activity android:name=".ui.more.MoreActivity" />
         <activity android:name=".RegisterActivity5" />
         <activity android:name=".RegisterActivity4" />
         <activity android:name=".RegisterActivity3" />
@@ -26,9 +28,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AdvertisementActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".SplashActivity">
-
-        </activity>
+        <activity android:name=".SplashActivity" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".MainActivity"
@@ -40,4 +40,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
