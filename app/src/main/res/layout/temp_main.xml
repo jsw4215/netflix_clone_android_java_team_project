@@ -5,438 +5,370 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:paddingTop="?attr/actionBarSize">
+    android:background="@color/black">
 
     <ScrollView
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/main_mid_poster"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/poster_main"
-                tools:ignore="MissingConstraints" />
-
-            <include
-                layout="@layout/toolbar_main"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:gravity="center_horizontal"
-                android:layout_gravity="bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:text="소름 - 폭력 - 흥미진진 - 액션 - 시대물 - 스릴러 - 드라마"
-                android:textColor="@color/white" />
-        </FrameLayout>
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            >
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
-            <LinearLayout
-                android:layout_margin="20dp"
-                android:paddingEnd="10dp"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_check_olny_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    android:id="@+id/main_mid_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="440dp"
+                    android:src="@drawable/main_dummy"
+                    tools:ignore="MissingConstraints" />
 
-                <TextView
-                    android:textSize="12sp"
-                    android:text="내가 찜한 콘텐츠"
-                    android:textColor="@color/light_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                <include layout="@layout/toolbar_main" />
 
-            </LinearLayout>
-
-            <Button
-                android:layout_gravity="center"
-                android:backgroundTint="@color/light_gray"
-                android:text="재생"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:drawableLeft="@drawable/ic_play_arrow_black"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:paddingStart="30dp"
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_alert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:textSize="12sp"
-                    android:text="정보"
-                    android:textColor="@color/light_gray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="미리보기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:src="@drawable/poster"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/circle_poster1"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="0.5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerVertical="true"/>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:src="@drawable/poster"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/circle_poster2"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="0.5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerVertical="true"/>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:src="@drawable/poster"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/circle_poster3"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="0.5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerVertical="true"/>
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:src="@drawable/poster"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:id="@+id/circle_poster4"
-                    app:civ_border_color="@color/black"
-                    app:civ_border_width="0.5dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_centerVertical="true"/>
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-    <!--내가찜한 콘텐츠-->
-
-        <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="내가 찜한 콘텐츠"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/picked_contents_poster1"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/picked_contents_poster2"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/picked_contents_poster3"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/picked_contents_poster4"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/picked_contents_poster5"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <!--절찬 스트리밍 중-->
-
-        <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="절찬 스트리밍 중: 시즌1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <VideoView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:text="▶ 재생"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"/>
+            </FrameLayout>
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center_horizontal"
+                android:text="다크 - 긴장감 넘치는 - 로맨스 - 드라마 - 사랑과 집착 사이"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_check_olny_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내가 찜한 콘텐츠"
+                        android:textColor="@color/light_gray"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="25dp"
+                    android:backgroundTint="@color/light_gray"
+                    android:drawableLeft="@drawable/ic_play_arrow_black"
+                    android:text="재생"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/real_info" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="정보"
+                        android:textColor="@color/light_gray"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="미리보기"
+                android:textStyle="bold"
                 android:textColor="@color/light_gray"
-                android:layout_marginLeft="40dp"
-                android:textSize="15sp"
-                android:text="+ 내가 찜한 콘텐츠"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:textSize="20sp" />
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circle_poster1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/poster"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="0.5dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circle_poster2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:src="@drawable/poster"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="0.5dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circle_poster3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:src="@drawable/poster"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="0.5dp" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/circle_poster4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="25dp"
+                        android:src="@drawable/poster"
+                        app:civ_border_color="@color/black"
+                        app:civ_border_width="0.5dp" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!--내가찜한 콘텐츠-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="내가 찜한 콘텐츠"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="몰아보기 추천 정치 TV 쇼"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="지금 뜨는 콘텐츠"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="Netflix 오리지널"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="한국 드라마"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="한국 드라마 &amp; 버라이어티"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="미국 TV 프로그램"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <include layout="@layout/main_ranking" />
+
+            <!--절찬 스트리밍 중-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingBottom="10dp"
+                android:textStyle="bold"
+                android:text="절찬 스트리밍 중: 시즌1"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="150dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_margin="10dp"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:background="@color/white"
+                    android:text="재생"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_play_arrow_black"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_add_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="내가 찜한 콘텐츠"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <!--지금 뜨는 콘텐츠-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingTop="5dp"
+                android:text="몰아보기 추천! TV 프로그램"
+                android:textStyle="bold"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="한국 영화"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:text="TV 드라마"
+                android:textColor="@color/light_gray"
+                android:textSize="20sp" />
+
+            <include layout="@layout/poster_list"
+                android:layout_marginBottom="50dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+            <!--전체스크롤뷰 닫는 부분-->
         </LinearLayout>
-
-<!--지금 뜨는 콘텐츠-->
-        <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="지금 뜨는 콘텐츠"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/rising_poster1"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/rising_poster2"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/rising_poster3"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/rising_poster4"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/rising_poster5"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <!--오늘 한국의 TOP 10 콘텐츠-->
-        <TextView
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="지금 뜨는 콘텐츠"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/ranking_1"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_2"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_3"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_4"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_5"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_6"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_7"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_8"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_9"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <ImageView
-                    android:id="@+id/ranking_10"
-                    android:src="@drawable/poster"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <include layout="@layout/main_ranking"/>
-
-
-
-
-
-
-        <!--전체스크롤뷰 닫는 부분-->
-    </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -446,24 +378,12 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="@color/black"
-        app:itemIconTint="@drawable/nav_item_color_state"
-        app:itemTextColor="@drawable/nav_item_color_state"
+        app:itemIconTint="@color/bottom_navigation_selector"
+        app:itemTextColor="@color/bottom_navigation_selector"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
-
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

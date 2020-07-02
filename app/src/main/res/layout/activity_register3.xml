@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegisterActivity">
-
+    tools:context=".src.register.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mem_top_toolbar"
@@ -135,15 +134,19 @@
             android:textSize="20sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/reg_et_email_outside"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:hintTextColor="@color/loginColor"
-                app:boxStrokeColor="@color/loginColor"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                android:background="@color/white"
                 android:textColorHint="@color/loginColor"
                 android:layout_marginBottom="10dp"
                 android:hint="이메일 주소">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_et_email_inside"
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:background="@drawable/grey_border"
                     android:layout_height="match_parent"
@@ -152,6 +155,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/reg_et_pw_outside"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextColor="@color/loginColor"
@@ -159,6 +163,7 @@
             android:textColorHint="@color/loginColor"
             android:hint="비밀번호">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_et_pw_inside"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
                 android:layout_height="match_parent"

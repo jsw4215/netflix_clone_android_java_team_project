@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegisterActivity">
-
+    tools:context=".src.register.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mem_top_toolbar"
@@ -186,6 +185,7 @@
             android:layout_marginBottom="6dp"
             android:hint="카드 번호">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_et_pay_card_num"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
                 android:layout_height="match_parent"
@@ -202,6 +202,7 @@
             android:layout_marginBottom="6dp"
             android:hint="만료 날짜(월/연도: 05/17)">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_et_pay_mon_year"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
                 android:layout_height="match_parent"
@@ -218,6 +219,7 @@
             android:layout_marginBottom="6dp"
             android:hint="이름">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_et_pay_name"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
                 android:layout_height="match_parent"
@@ -264,6 +266,7 @@
             android:layout_marginBottom="6dp"
             android:hint="출생연도">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_et_pay_birth_year"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
                 android:layout_height="match_parent"

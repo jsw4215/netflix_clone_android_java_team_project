@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegisterActivity">
-
+    tools:context=".src.register.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mem_top_toolbar"
@@ -63,36 +62,11 @@
 
         <ImageView
             android:id="@+id/reg_mid_laptop"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_laptop"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:src="@drawable/register"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="30dp"/>
-
-        <ImageView
-            android:id="@+id/reg_mid_desktop"
-            android:layout_width="120dp"
-            android:layout_height="80dp"
-            android:layout_toEndOf="@+id/reg_mid_laptop"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_desktop" />
-
-        <ImageView
-            android:id="@+id/reg_mid_tablet"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_toEndOf="@+id/reg_mid_desktop"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_tablet" />
-
-        <ImageView
-            android:id="@+id/reg_mid_phone"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_toEndOf="@+id/reg_mid_tablet"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_phone" />
-
     </RelativeLayout>
 
     <LinearLayout
@@ -121,7 +95,6 @@
             android:text="계정을 등록하세요."
             />
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +104,6 @@
                 android:textSize="18sp"/>
 
     </LinearLayout>
-
 
     <Button
         android:id="@+id/reg_btn_next"

@@ -6,7 +6,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        android:background="#0C0101">
+        android:background="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +25,7 @@
                 android:id="@+id/adv_tv_personal_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="개인정보"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
@@ -34,6 +35,7 @@
                 android:id="@+id/adv_tv_customer_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="고객 센터"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"
@@ -43,6 +45,7 @@
                 android:id="@+id/adv_tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="로그인"
                 android:layout_margin="10dp"
                 android:textColor="@color/white"

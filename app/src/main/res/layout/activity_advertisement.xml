@@ -66,6 +66,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vpPager"
         android:layout_below="@+id/adv_relLayout1"
+        android:layout_above="@+id/adv_btn_go"
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -7,7 +7,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#0C0101"
+        android:background="@color/black"
         android:theme="@style/Theme.AppCompat.Light.Dialog"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -21,17 +21,18 @@
                 android:layout_width="125dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="16dp"
-                android:padding="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/back_arrowtopic"
-                app:layout_constraintStart_toEndOf="@+id/back_arrowtopic"
-                app:layout_constraintTop_toTopOf="@+id/back_arrowtopic"
+                android:layout_marginTop="8dp"
+                android:padding="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/sign_in_top_back_arrow"
+                app:layout_constraintStart_toEndOf="@+id/sign_in_top_back_arrow"
+                app:layout_constraintTop_toTopOf="@+id/sign_in_top_back_arrow"
                 app:srcCompat="@drawable/ic_netflix_icontext"
                 tools:ignore="VectorDrawableCompat" />
 
             <ImageView
-                android:id="@+id/back_arrowtopic"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/sign_in_top_back_arrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/ic_back_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

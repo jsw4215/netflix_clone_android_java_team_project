@@ -17,29 +17,37 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".SavedContentsActivity" />
+        <activity android:name=".TempTry">
+
+        </activity>
+        <activity android:name=".src.register.DialogActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
+        <activity android:name=".src.search.SearchActivity"></activity>
+        <activity android:name=".src.main.SavedContentsActivity" />
         <activity android:name=".ui.more.MoreActivity" />
-        <activity android:name=".RegisterActivity5" />
-        <activity android:name=".RegisterActivity4" />
-        <activity android:name=".RegisterActivity3" />
-        <activity android:name=".RegisterActivity2" />
-        <activity android:name=".MembershipActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".AdvertisementActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SplashActivity" >
-       </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+        <activity android:name=".src.register.RegisterActivity5" />
+        <activity android:name=".src.register.RegisterActivity4" />
+        <activity android:name=".src.register.RegisterActivity3" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".src.register.RegisterActivity2" />
+        <activity android:name=".src.register.MembershipActivity" />
+        <activity android:name=".src.register.RegisterActivity" />
+        <activity android:name=".src.advertisement.AdvertisementActivity" />
+        <activity android:name=".src.main.MainActivity">
+        </activity>
+
+        <activity android:name=".src.signin.SignInActivity">
+        </activity>
+        <activity android:name=".src.splash.SplashActivity" >
+
+       </activity>
+        <activity android:name=".src.main.ProfileActivity" />
+
     </application>
 
 </manifest>

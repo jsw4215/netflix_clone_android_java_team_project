@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".SignInActivity">
+    tools:context=".src.signin.SignInActivity">
 
     <include layout="@layout/toolbar_signup"></include>
 
@@ -17,122 +21,119 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            app:hintTextColor="@color/loginColor"
-            app:boxStrokeColor="@color/loginColor"
-            android:textColorHint="@color/loginColor"
-            android:background="#1A1A1A"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:padding="1dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            app:boxBackgroundMode="filled"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.346">
-
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/sign_in_et_email"
+                app:hintTextColor="@color/loginColor"
+                app:boxStrokeColor="@color/loginColor"
+                android:textColorHint="@color/loginColor"
+                android:background="@drawable/login_radius"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.275"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@color/dark_gray"
+                android:layout_marginBottom="20dp"
                 android:hint="이메일 주소 또는 전화번호"
-                android:padding="10dp"
-                android:textColor="#ffff"
-                android:textColorHint="#FFFEFE" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout2"
-            app:hintTextColor="@color/loginColor"
-            app:boxStrokeColor="@color/loginColor"
-            android:textColorHint="@color/loginColor"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:padding="1dp"
-            android:layout_marginEnd="32dp"
-            android:background="#1A1A1A"
-            app:boxBackgroundMode="filled"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:background="@color/dark_gray"
-                android:hint="비밀번호"
-                android:inputType="textPassword"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:textColor="#ffff" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_in_et_pw"
+                app:hintTextColor="@color/loginColor"
+                app:boxStrokeColor="@color/loginColor"
+                android:textColorHint="@color/loginColor"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/login_radius"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_et_email"
+                app:passwordToggleEnabled="true"
+                android:layout_marginBottom="10dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:textColor="#ffff" />
 
         <TextView
             android:id="@+id/tedfdsxtView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="30dp"
             android:text="도움이 필요하신가요?"
             android:textColor="#A8A6A6"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/sign_in_et_pw"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintStart_toStartOf="@+id/sign_in_et_pw"
+            app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="30dp"
             android:text="Netflix 회원이 아닌가요? 지금 가입하세요."
             android:textColor="#A8A6A6"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tedfdsxtView"
-            android:textStyle="bold"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/tedfdsxtView"
             app:layout_constraintTop_toBottomOf="@+id/tedfdsxtView" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/sign_in_button"
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/grey_border"
+            android:background="@drawable/login_btn_color"
             android:text="로그인"
-            android:textAllCaps="false"
-            android:textColor="#FFFEFE"
-            android:textSize="19sp"
-            app:backgroundTint="#000000"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+            android:textColor="@color/loginColor"
+            android:textSize="18sp"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="@+id/sign_in_et_pw"
+            app:layout_constraintStart_toStartOf="@+id/sign_in_et_pw"
+            app:layout_constraintTop_toBottomOf="@+id/sign_in_et_pw" />
+
+        <TextView
+            android:textSize="14sp"
+            android:padding="35dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:textColor="@color/gray"
+            android:text="로그인 시 Google reCAPTCHA를 이용해 사용자가 로봇이 아님을 확인합니다. 자세히 알아보기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include layout="@layout/alert_sign_in_email" />
+    <include layout="@layout/alert_sign_in_pw" />
+
+</FrameLayout>

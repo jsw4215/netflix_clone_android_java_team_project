@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="내가 찜한 콘텐츠"
+        android:text="오늘 한국의 TOP 10 콘텐츠"
         android:textColor="@color/light_gray"
         android:textSize="20sp" />
 
@@ -38,7 +38,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -64,7 +64,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -90,7 +90,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -116,7 +116,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -142,7 +142,7 @@
                     android:layout_marginLeft="30dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -168,7 +168,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -194,7 +194,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -220,7 +220,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -246,7 +246,7 @@
                     android:layout_marginLeft="40dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -272,7 +272,7 @@
                     android:layout_marginLeft="60dp"
                     android:src="@drawable/poster" />
 
-                <com.daniel.app.netfilx_clone.OutlineTextView
+                <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
@@ -280,6 +280,7 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="10"
+                    android:letterSpacing="-0.15"
                     android:textColor="@color/black"
                     android:textSize="130sp"
                     app:textStroke="true"
