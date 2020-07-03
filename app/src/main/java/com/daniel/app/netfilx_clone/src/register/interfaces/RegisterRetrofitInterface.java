@@ -24,8 +24,6 @@ import retrofit2.http.Query;
 
 public interface RegisterRetrofitInterface {
 //    @GET("/test")
-    @GET("/jwt")
-    Call<DefaultResponse> getTest();
 
     @GET("/test/{number}")
     Call<DefaultResponse> getTestPathAndQuery(

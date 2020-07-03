@@ -56,13 +56,6 @@
     </androidx.appcompat.widget.Toolbar>
     <!--finish Toolbar-->
 
-    <ScrollView
-        android:id="@+id/mem_scroll1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mem_top_toolbar"
-        android:orientation="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -638,5 +631,4 @@
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>
-    </ScrollView>
 </RelativeLayout>

@@ -39,7 +39,7 @@ dependencies {
     implementation 'com.android.support:design:29.0.0'
     implementation 'me.relex:circleindicator:1.2.2'
     implementation 'com.github.nitrico.stickyscrollview:stickyscrollview:1.0.2'
-    compile 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
 
     // https://github.com/square/retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'

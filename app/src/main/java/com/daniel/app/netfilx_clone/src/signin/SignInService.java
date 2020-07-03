@@ -33,7 +33,7 @@ public class SignInService {
                     mSignInActivityView.validateFailure(null);
                     return;
                 }
-                mSignInActivityView.validateSuccess(signInResponse.isSuccess(), signInResponse.getMessage());
+                mSignInActivityView.validateSuccess(signInResponse.isSuccess(), signInResponse.getCode());
             }
 
             @Override

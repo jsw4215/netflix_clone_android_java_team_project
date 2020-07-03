@@ -19,10 +19,12 @@ import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
 import com.daniel.app.netfilx_clone.src.main.MainActivity;
+import com.daniel.app.netfilx_clone.src.profile.ProfileActivity;
 import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInActivityView;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SignInActivity extends BaseActivity implements SignInActivityView {
+
     private static final String TAG = "SignInActivity";
 
     TextInputEditText mEmail;
@@ -135,22 +137,18 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
     }
 
     @Override
-    public void validateSuccess(boolean isSuccess, String Message) {
+    public void validateSuccess(boolean isSuccess, int code) {
         hideProgressDialog();
-
+        Log.d(TAG, "validateSuccess:Message ");
         if(isSuccess){
             Log.d(TAG, "validateSuccess: Login Success");
-        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+        Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
         startActivity(intent);
             finish();
         }else{
-
-            makeDialog(Message);
-
+            makeDialog(code);
             Log.d(TAG, "validateSuccess: Login failure");
         }
-
-
     }
 
     @Override
@@ -169,14 +167,14 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
         }
     }
 
-    private void makeDialog(String Message) {
+    private void makeDialog(int code) {
 
-        Log.d(TAG, "makeDialog: " + Message);
+        Log.d(TAG, "makeDialog: " + code);
 
-        if(Message.equals("존재하지 않는 이메일입니다")){
+        if(code == 200){
             mAlertEmail.setVisibility(View.VISIBLE);
 
-        }else if(Message.equals("잘못된 패스워드 입니다")){
+        }else if(code == 210){
             mAlertPw.setVisibility(View.VISIBLE);
 
         }

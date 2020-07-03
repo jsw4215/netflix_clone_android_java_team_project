@@ -34,20 +34,8 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decor = getWindow().getDecorView();
 
-            // We want to change tint color to white again.
-            // You can also record the flags in advance so that you can turn UI back completely if
-            // you have set other flags before, such as translucent or full screen.
             decor.setSystemUiVisibility(0);
         }
-
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-//                .build();
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-//        NavigationUI.setupWithNavController(navView, navController);
 
     }
 

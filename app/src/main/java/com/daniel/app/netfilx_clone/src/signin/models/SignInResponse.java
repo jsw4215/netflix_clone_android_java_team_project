@@ -14,12 +14,12 @@ public class SignInResponse {
     private boolean isSuccess;
 
     @SerializedName("code")
-    private String code;
+    private int code;
 
     @SerializedName("message")
     private String message;
 
-    public SignInResponse(String jwt, int userId, boolean isSuccess, String code, String message) {
+    public SignInResponse(String jwt, int userId, boolean isSuccess, int code, String message) {
         this.jwt = jwt;
         this.userId = userId;
         this.isSuccess = isSuccess;
@@ -51,11 +51,11 @@ public class SignInResponse {
         isSuccess = success;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 
 public interface SignInActivityView {
 
-    void validateSuccess(boolean isSuccess, String Message);
+    void validateSuccess(boolean isSuccess, int code);
 
     void validateFailure(String message);
 

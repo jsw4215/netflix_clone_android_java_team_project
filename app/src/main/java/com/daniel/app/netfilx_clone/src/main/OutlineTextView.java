@@ -20,7 +20,6 @@ import com.daniel.app.netfilx_clone.R;
 public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView {
 
 
-
     private boolean stroke = false;
 
     private float strokeWidth = 0.0f;
@@ -28,17 +27,14 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
     private int strokeColor;
 
 
-
     public OutlineTextView(Context context, AttributeSet attrs, int defStyle) {
 
         super(context, attrs, defStyle);
 
 
-
         initView(context, attrs);
 
     }
-
 
 
     public OutlineTextView(Context context, AttributeSet attrs) {
@@ -46,11 +42,9 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
         super(context, attrs);
 
 
-
         initView(context, attrs);
 
     }
-
 
 
     public OutlineTextView(Context context) {
@@ -58,7 +52,6 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
         super(context);
 
     }
-
 
 
     private void initView(Context context, AttributeSet attrs) {
@@ -74,13 +67,9 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
     }
 
 
-
-
-
     @Override
 
     protected void onDraw(Canvas canvas) {
-
 
 
         if (stroke) {
@@ -96,7 +85,6 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
             super.onDraw(canvas);
 
 
-
             getPaint().setStyle(Style.FILL);
 
             setTextColor(states);
@@ -104,11 +92,9 @@ public class OutlineTextView extends androidx.appcompat.widget.AppCompatTextView
         }
 
 
-
         super.onDraw(canvas);
 
     }
-
 
 
     @Override

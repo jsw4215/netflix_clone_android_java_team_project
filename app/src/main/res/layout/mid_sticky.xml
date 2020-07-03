@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/mem_lin_layout2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/mem_scroll2"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/mem_tv_bill_basic"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:text="베이식"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/mem_tv_bill_standard"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:text="스탠다드"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/mem_tv_bill_premium"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:text="프리미엄"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

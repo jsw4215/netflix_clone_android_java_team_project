@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".src.profile.ProfileChangeActivity">
+
+    <include layout="@layout/profile_change_top_tool_bar"/>
+
+    <ImageView
+        android:id="@+id/profile_change_iv_profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/profile1"/>
+
+    <TextView
+        android:layout_below="@+id/profile_change_iv_profile"
+        android:id="@+id/profile_change_tv_profile"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:padding="20dp"
+        android:text="변경"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/profile_change_et_profile_name"
+        android:background="@drawable/white_border_rectangle"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/profile_change_tv_profile"
+        android:textColor="@color/white"
+        android:text="SUK WOO JANG"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
+    <Button
+        android:id="@+id/profile_change_btn_grade"
+        android:layout_below="@+id/profile_change_et_profile_name"
+        android:background="@color/dark_gray"
+        android:backgroundTint="@color/dark_gray"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:text="모든 관람등급"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/profile_change_tv_info1"
+        android:layout_below="@+id/profile_change_btn_grade"
+        android:text="이 프로필에서는 모든 관람등급 등급의 콘텐츠가 표시됩니다."
+        android:textSize="18sp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/profile_change_tv_info2"
+        android:layout_below="@+id/profile_change_tv_info1"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/dark_gray"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:gravity="center"
+        android:text="시청 제한 설정은 웹사이트에 계정 설정에서 변경하실 수 있습니다."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

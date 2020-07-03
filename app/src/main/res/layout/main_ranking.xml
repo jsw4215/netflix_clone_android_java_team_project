@@ -36,7 +36,8 @@
                     android:layout_width="100dp"
                     android:layout_height="150dp"
                     android:layout_marginLeft="40dp"
-                    android:src="@drawable/poster" />
+                    android:src="@drawable/poster"
+                    android:background="@drawable/image_shadow"/>
 
                 <com.daniel.app.netfilx_clone.src.main.OutlineTextView
                     android:layout_width="wrap_content"

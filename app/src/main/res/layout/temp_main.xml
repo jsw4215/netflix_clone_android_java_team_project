@@ -137,8 +137,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
                         android:src="@drawable/poster"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="0.5dp" />
+                        app:civ_border_color="@color/silver"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/circle_poster2"
@@ -147,8 +147,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="25dp"
                         android:src="@drawable/poster"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="0.5dp" />
+                        app:civ_border_color="@color/silver"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/circle_poster3"
@@ -157,8 +157,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="25dp"
                         android:src="@drawable/poster"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="0.5dp" />
+                        app:civ_border_color="@color/silver"
+                        app:civ_border_width="3dp" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/circle_poster4"
@@ -167,8 +167,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="25dp"
                         android:src="@drawable/poster"
-                        app:civ_border_color="@color/black"
-                        app:civ_border_width="0.5dp" />
+                        app:civ_border_color="@color/silver"
+                        app:civ_border_width="3dp" />
 
                 </LinearLayout>
             </HorizontalScrollView>
