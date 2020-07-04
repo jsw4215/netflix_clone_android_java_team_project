@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:background="@drawable/poster_sample"
-    android:layout_height="match_parent">
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/transparent"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#66000000"
-    tools:context=".src.SingleActivity.SingleActivity">
+    tools:context=".src.single.SingleActivity">
 
-    <ImageView
-        android:layout_toEndOf="@id/like_x_mark"
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/like_like"
         android:src="@drawable/like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginRight="-10dp"
+        app:civ_border_color="@color/silver"
+        app:civ_border_width="1dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="70dp"
         android:src="@drawable/like_x_mark"
         android:id="@+id/like_x_mark"
-        android:layout_below="@id/like_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:civ_border_color="@color/silver"
+        app:civ_border_width="1dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
 
 
-    <ImageView
-        android:layout_toEndOf="@id/like_x_mark"
-        android:layout_below="@+id/like_x_mark"
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/like_hate"
         android:src="@drawable/hate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_marginLeft="-10dp"
+        app:civ_border_color="@color/silver"
+        app:civ_border_width="1dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
 
-
-
-
-</RelativeLayout>
-</FrameLayout>
+</LinearLayout>

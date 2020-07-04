@@ -10,9 +10,15 @@
         android:left="1dp">
 
         <shape
-            android:shape="oval">
+            android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:color="@color/light_gray"/>
             <solid
-                android:color="@color/blue"/>
+                android:backgroundTint = "@color/loginColor"
+                android:color="@color/white"/>
+            <corners
+                android:radius="3dp"/>
         </shape>
     </item>
 </layer-list>

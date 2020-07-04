@@ -3,12 +3,15 @@
 <color name="colorPrimary">#ACACAC</color>
 <color name="colorPrimaryDark">#00574B</color>
 <color name="colorAccent">#D81B60</color>
+    <color name="green">#2DDF60</color>
 <color name="loginColor">#A8A6A6</color>
 <color name="buttonColor">#EC1818</color>
+    <color name="transparent">#1A000000</color>
 <color name="white">#FFFFFF</color>
 <color name="black">#000000</color>
 <color name="gray">#5C5555</color>
 <color name="blue">#395EEF</color>
+    <color name="lite_blue">#496AEC</color>
 <color name="membershipColor">#EDEEF3</color>
 <color name="light_dark">#090909</color>
 <color name="light_gray">#D3D3D3</color>

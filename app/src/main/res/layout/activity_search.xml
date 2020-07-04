@@ -9,6 +9,12 @@
     android:background="@color/black"
     tools:context=".ui.more.MoreActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
     <RelativeLayout
         android:id="@+id/search_rel_layout1"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +27,7 @@
             android:layout_margin="10dp"
             android:layout_alignParentStart="true"
             android:id="@+id/search_iv_icon"
-            android:src="@drawable/ic_search"
+            app:srcCompat="@drawable/ic_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -40,7 +46,7 @@
             android:layout_marginRight="20dp"
             android:layout_centerVertical="true"
             android:id="@+id/search_iv_mic"
-            android:src="@drawable/ic_micro_phone"
+            app:srcCompat="@drawable/ic_micro_phone"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -48,7 +54,6 @@
     </RelativeLayout>
 
     <ScrollView
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -71,6 +76,7 @@
             android:layout_height="wrap_content"/>
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_rv_contents"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -80,14 +86,15 @@
 
         </LinearLayout>
     </ScrollView>
+    </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:itemIconTint="@drawable/nav_item_color_state"
-        app:itemTextColor="@drawable/nav_item_color_state"
+        app:itemIconTint="@color/bottom_navigation_selector"
+        app:itemTextColor="@color/bottom_navigation_selector"
         android:background="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

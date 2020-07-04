@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_rl_item"
+    android:background="@color/light_dark"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="3dp">
+
+    <ImageView
+        android:src="@drawable/poster_sample"
+        android:layout_alignParentStart="true"
+        android:id="@+id/search_iv_item"
+        android:layout_width="100dp"
+        android:layout_height="140dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/search_iv_item"
+        android:id="@+id/search_tv_title"
+        android:layout_centerVertical="true"
+        android:textSize="20sp"
+        android:text="졸업반"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/ic_white_play_arrow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+</RelativeLayout>

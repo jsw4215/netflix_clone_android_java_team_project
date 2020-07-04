@@ -1,68 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/ll_writeChoice"
-    android:orientation="vertical"
-    android:theme="@style/Theme.Transparent">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/transparent2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"></LinearLayout>
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        tools:context=".src.single.SingleActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="0dp"
-        android:layout_weight="2">
+        <ImageView
+            android:layout_toEndOf="@id/like_x_mark"
+            android:id="@+id/like_like"
+            android:src="@drawable/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="3.3"
-            android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingBottom="10dp">
-            <ImageButton
-                android:id="@+id/btn_userWrite"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3.3"
-                android:background="@drawable/poster_sample"/>
-        </LinearLayout>
+        <ImageView
+            android:src="@drawable/like_x_mark"
+            android:id="@+id/like_x_mark"
+            android:layout_below="@id/like_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="3.3"
-            android:padding="10dp">
-            <ImageButton
-                android:id="@+id/btn_waterWrite"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3.3"
-                android:background="@drawable/poster_sample"/>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:layout_weight="3.3"
-            android:paddingRight="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-            <ImageButton
-                android:id="@+id/btn_noSmokingWrite"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3.3"
-                android:background="@drawable/poster_sample"/>
-        </LinearLayout>
-    </LinearLayout>
+        <ImageView
+            android:layout_toEndOf="@id/like_x_mark"
+            android:layout_below="@+id/like_x_mark"
+            android:id="@+id/like_hate"
+            android:src="@drawable/hate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"></LinearLayout>
-</LinearLayout>
+
+
+
+    </RelativeLayout>
+</FrameLayout>

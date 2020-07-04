@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <VideoView
+            android:id="@+id/coming_vv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <LinearLayout
+            android:layout_below="@+id/coming_vv"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/coming_iv_title_image"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:src="@drawable/samsung"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <ImageView
+                    android:id="@+id/coming_iv_alert"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/like_only" />
+
+                <TextView
+                    android:id="@+id/coming_tv_alert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:text="평가"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <ImageView
+                    android:id="@+id/coming_iv_share"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sharing" />
+
+                <TextView
+                    android:id="@+id/coming_tv_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:text="평가"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_margin="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/light_gray"
+            android:text="토요일 시즌1 공개"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/coming_tv_title"
+            android:layout_margin="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="멈추고 싶은 순간: 어바웃타임"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/coming_tv_contents"
+            android:layout_margin="5dp"
+            android:textColor="@color/gray"
+            android:text="사람들의 남은 수명이 보이는 여자. 범불안장애~~"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/coming_tv_genre"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:text="다크 - 풍부한 감정 - 로맨스 - 음악"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>

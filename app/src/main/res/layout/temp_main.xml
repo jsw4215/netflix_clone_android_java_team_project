@@ -30,7 +30,25 @@
                     android:src="@drawable/main_dummy"
                     tools:ignore="MissingConstraints" />
 
-                <include layout="@layout/toolbar_main" />
+                <ViewFlipper
+                    android:id="@+id/main_vf_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                
+                <include
+                    android:id="@+id/main_top_container"
+                    layout="@layout/toolbar_main" />
+
+                    <include
+                        android:id="@+id/main_top_container2"
+                        layout="@layout/toolbar_main_movie" />
+
+
+                    <include
+                        android:id="@+id/main_top_container3"
+                        layout="@layout/toolbar_main_tv" />
+
+                </ViewFlipper>
 
             </FrameLayout>
 
@@ -62,7 +80,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/ic_check_olny_gray" />
+                        app:srcCompat="@drawable/ic_check_olny_gray" />
 
                     <TextView
                         android:layout_width="wrap_content"
