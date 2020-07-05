@@ -17,27 +17,24 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.comingsoon.ComingSoonActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".src.profile.ProfileAddActivity"></activity>
+        <activity android:name=".src.comingsoon.ComingSoonActivity"></activity>
         <activity android:name=".src.main.toptools.ZzimActivity" />
         <activity
             android:name=".src.main.toptools.GenreActivity"
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".src.single.LikeActivity" />
         <activity android:name=".src.single.SingleActivity" />
-        <activity android:name=".src.profile.ProfileSelectionActivity" />
+        <activity android:name=".src.profile.profile_selection.ProfileSelectionActivity" />
         <activity android:name=".src.profile.ProfileChangeActivity" />
         <activity android:name=".TempTry" />
         <activity
-            android:name=".src.register.DialogActivity"
+        android:name=".src.register.DialogActivity"
+        android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
+        <activity
+            android:name=".src.profile.utils.DeleteDialogActivity"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
-        <activity android:name=".src.search.SearchActivity">
-        </activity>
+        <activity android:name=".src.search.SearchActivity"></activity>
         <activity android:name=".src.main.SavedContentsActivity" />
         <activity android:name=".ui.more.MoreActivity" />
         <activity android:name=".src.register.RegisterActivity5" />
@@ -47,8 +44,14 @@
         <activity android:name=".src.register.MembershipActivity" />
         <activity android:name=".src.register.RegisterActivity" />
         <activity android:name=".src.advertisement.AdvertisementActivity" />
-        <activity android:name=".src.main.MainActivity"></activity>
-        <activity android:name=".src.signin.SignInActivity" />
+        <activity android:name=".src.main.MainActivity" />
+        <activity android:name=".src.signin.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".src.splash.SplashActivity" />
         <activity android:name=".src.profile.ProfileActivity" />
     </application>

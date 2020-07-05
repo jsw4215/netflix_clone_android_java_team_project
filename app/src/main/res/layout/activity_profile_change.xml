@@ -78,5 +78,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@id/profile_change_tv_info2"
+        android:orientation="horizontal"
+        android:id="@+id/profile_change_ll_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/profile_change_iv_delete"
+            android:src="@drawable/ic_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            />
+
+        <TextView
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="프로필 삭제"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

@@ -39,7 +39,7 @@
                 android:layout_gravity="center"
                 android:text="저장"
                 android:layout_margin="10dp"
-                android:textColor="@color/white"
+                android:textColor="@color/green"
                 android:textSize="15sp"/>
 
         </RelativeLayout>

@@ -3,6 +3,7 @@ package com.daniel.app.netfilx_clone.src.register;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -11,8 +12,11 @@ import android.widget.TextView;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
+import com.daniel.app.netfilx_clone.src.profile.ProfileService;
 
 public class DialogActivity extends Activity {
+
+    private static final String TAG = "DialogActivity";
 
     LinearLayout mAlertStopRegister;
     TextView mAlertCancel;
@@ -44,6 +48,7 @@ public class DialogActivity extends Activity {
         });
 
     }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

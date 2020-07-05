@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Layout;
@@ -22,6 +23,9 @@ import com.daniel.app.netfilx_clone.src.main.MainActivity;
 import com.daniel.app.netfilx_clone.src.profile.ProfileActivity;
 import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInActivityView;
 import com.google.android.material.textfield.TextInputEditText;
+
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.X_ACCESS_TOKEN;
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
 
 public class SignInActivity extends BaseActivity implements SignInActivityView {
 
@@ -137,12 +141,17 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
     }
 
     @Override
-    public void validateSuccess(boolean isSuccess, int code) {
+    public void validateSuccess(boolean isSuccess, int code, String jwt) {
         hideProgressDialog();
         Log.d(TAG, "validateSuccess:Message ");
         if(isSuccess){
             Log.d(TAG, "validateSuccess: Login Success");
-        Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
+
+            SharedPreferences.Editor editor = sSharedPreferences.edit();
+            editor.putString(X_ACCESS_TOKEN, jwt);
+            editor.apply();
+
+            Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
         startActivity(intent);
             finish();
         }else{

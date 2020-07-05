@@ -13,7 +13,7 @@
     android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.profile.ProfileSelectionActivity">
+    tools:context=".src.profile.profile_selection.ProfileSelectionActivity">
 
     <include layout="@layout/profile_selection_top_tool_bar"/>
 
@@ -25,7 +25,11 @@
         android:textColor="@color/light_gray"
         android:textSize="20sp" />
 
-    <include layout="@layout/profile_selection_list"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profile_rv_selection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
