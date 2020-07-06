@@ -20,6 +20,7 @@ import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
 import com.daniel.app.netfilx_clone.src.main.MainActivity;
+import com.daniel.app.netfilx_clone.src.main.single.SingleActivity;
 import com.daniel.app.netfilx_clone.src.profile.ProfileActivity;
 import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInActivityView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -65,6 +66,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, AdvertisementActivity.class);
+
                 startActivity(intent);
             }
         });
@@ -151,8 +153,9 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
             editor.putString(X_ACCESS_TOKEN, jwt);
             editor.apply();
 
+            //Intent intent = new Intent(SignInActivity.this, SingleActivity.class);
             Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
-        startActivity(intent);
+            startActivity(intent);
             finish();
         }else{
             makeDialog(code);

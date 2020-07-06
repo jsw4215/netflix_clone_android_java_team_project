@@ -35,10 +35,10 @@
                     android:id="@+id/main_vf_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                
-                <include
-                    android:id="@+id/main_top_container"
-                    layout="@layout/toolbar_main" />
+
+                    <include
+                        android:id="@+id/main_top_container"
+                        layout="@layout/toolbar_main" />
 
                     <include
                         android:id="@+id/main_top_container2"

@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.single.SingleActivity">
+    tools:context=".src.main.single.SingleActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/like_like"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/single_total_scroll"
     android:layout_height="match_parent"
@@ -12,7 +13,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".src.single.SingleActivity">
+    tools:context=".src.main.single.SingleActivity">
 
     <RelativeLayout
         android:id="@+id/single_dim_background"
@@ -21,18 +22,19 @@
 
 
     <ImageView
+        android:id="@+id/single_iv_arrow_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_x_mark" />
+        app:srcCompat="@drawable/ic_back_arrow" />
 
     <ImageView
         android:id="@+id/single_iv_poster"
         android:layout_width="100dp"
         android:layout_height="140dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/poster_sample" />
 
     <LinearLayout
@@ -43,6 +45,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/sinlge_tv_percent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -95,29 +98,59 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/single_lin_poster_info">
 
-
-        <Button
+        <TextView
+            android:layout_margin="5dp"
+            android:padding="8dp"
             android:id="@+id/single_btn_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/buttonColor" />
+            android:background="@color/light_gray"
+            android:backgroundTint="@color/light_gray" />
 
         <TextView
+            android:id="@+id/single_tv_play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_white_play_arrow"
+            android:drawableLeft="@drawable/ic_play_arrow_black"
             android:text="재생"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15sp" />
 
     </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/single_fl_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/single_fl_play">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:id="@+id/single_btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_gray"
+                android:backgroundTint="@color/dark_gray" />
+
+            <TextView
+                android:id="@+id/single_tv_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/ic_white_saved"
+                android:text="저장"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </FrameLayout>
 
     <TextView
         android:id="@+id/single_tv_context"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/single_fl_play"
+        android:layout_below="@+id/single_fl_save"
         android:text="18세기 조선 , 블라블라"
         android:textColor="@color/white"
         android:textSize="12sp" />
@@ -167,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_add_white" />
+                    app:srcCompat="@drawable/ic_add_white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -240,7 +273,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_white_saved" />
+                    app:srcCompat="@drawable/ic_white_saved" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -276,6 +309,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/single_similar_poster1"
             android:src="@drawable/poster_sample"
             android:layout_row="0"
             android:layout_column="0"
@@ -283,6 +317,7 @@
             android:layout_height="140dp"/>
 
             <ImageView
+                android:id="@+id/single_similar_poster2"
                 android:src="@drawable/poster_sample"
                 android:layout_row="0"
                 android:layout_column="1"
@@ -290,6 +325,7 @@
                 android:layout_height="140dp"/>
 
             <ImageView
+                android:id="@+id/single_similar_poster3"
                 android:src="@drawable/poster_sample"
                 android:layout_row="0"
                 android:layout_column="2"
@@ -297,6 +333,7 @@
                 android:layout_height="140dp"/>
 
             <ImageView
+                android:id="@+id/single_similar_poster4"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="0"
@@ -304,6 +341,7 @@
                 android:layout_height="140dp"/>
 
             <ImageView
+                android:id="@+id/single_similar_poster5"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="1"
@@ -311,6 +349,7 @@
                 android:layout_height="140dp"/>
 
             <ImageView
+                android:id="@+id/single_similar_poster6"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="2"

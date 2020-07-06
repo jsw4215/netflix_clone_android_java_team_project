@@ -7,20 +7,11 @@ import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileRetrofitInterf
 import com.daniel.app.netfilx_clone.src.profile.models.ProfileAddResponse;
 import com.daniel.app.netfilx_clone.src.profile.models.ProfileBody;
 import com.daniel.app.netfilx_clone.src.profile.models.ProfileResponse;
-import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInActivityView;
-import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInRetrofitInterface;
-import com.daniel.app.netfilx_clone.src.signin.models.SignInBody;
-import com.daniel.app.netfilx_clone.src.signin.models.SignInResponse;
-
-import org.jetbrains.annotations.NotNull;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.daniel.app.netfilx_clone.src.ApplicationClass.BASE_URL;
 import static com.daniel.app.netfilx_clone.src.ApplicationClass.X_ACCESS_TOKEN;
 import static com.daniel.app.netfilx_clone.src.ApplicationClass.getRetrofit;
 
@@ -34,7 +25,7 @@ public class ProfileService {
     }
 
     void getProfiles() {
-        Log.d(TAG, "getProfiles: started");
+        Log.d(TAG, "getProfiles: started"+X_ACCESS_TOKEN);
         final ProfileRetrofitInterface profileRetrofitInterface = getRetrofit().create(ProfileRetrofitInterface.class);
         profileRetrofitInterface.getProfiles(X_ACCESS_TOKEN).enqueue(new Callback<ProfileResponse>() {
             @Override

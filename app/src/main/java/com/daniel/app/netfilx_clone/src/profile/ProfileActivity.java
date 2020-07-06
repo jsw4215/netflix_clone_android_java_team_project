@@ -1,41 +1,23 @@
 package com.daniel.app.netfilx_clone.src.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
-import com.daniel.app.netfilx_clone.src.main.MainActivity;
+import com.daniel.app.netfilx_clone.src.main.utils.MainLoadingActivity;
 import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
 import com.daniel.app.netfilx_clone.src.profile.models.result;
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
-import com.daniel.app.netfilx_clone.src.profile.utils.UniversalImageLoader;
-import com.daniel.app.netfilx_clone.src.signin.interfaces.SignInActivityView;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -121,7 +103,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
                     startActivity(intent);
                 }else if(mIvProfile2.getTag().equals("exist")){
-                    Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -136,7 +118,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
                     startActivity(intent);
                 }else if(mIvProfile3.getTag().equals("exist")){
-                    Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -151,7 +133,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
                     startActivity(intent);
                 }else if(mIvProfile4.getTag().equals("exist")){
-                    Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                    Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
                     startActivity(intent);
                     finish();
                 }

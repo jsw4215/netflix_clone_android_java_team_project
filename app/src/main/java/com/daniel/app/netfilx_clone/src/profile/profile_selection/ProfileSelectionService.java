@@ -2,9 +2,6 @@ package com.daniel.app.netfilx_clone.src.profile.profile_selection;
 
 import android.util.Log;
 
-import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
-import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileRetrofitInterface;
-import com.daniel.app.netfilx_clone.src.profile.models.ProfileResponse;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.interfaces.ProfileSelectionActivityView;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.interfaces.ProfileSelectionRetrofitInterface;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.models.ProfileSelectionResponse;

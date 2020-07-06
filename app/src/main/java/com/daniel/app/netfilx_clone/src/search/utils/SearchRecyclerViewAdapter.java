@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.Contents;
-import com.daniel.app.netfilx_clone.src.single.SingleActivity;
+import com.daniel.app.netfilx_clone.src.main.single.SingleActivity;
 
 import java.util.ArrayList;
 

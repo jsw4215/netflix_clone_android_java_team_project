@@ -1,4 +1,4 @@
-package com.daniel.app.netfilx_clone.src.profile.utils;
+package com.daniel.app.netfilx_clone.src.main.single.utils;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import com.daniel.app.netfilx_clone.src.profile.models.result;
 
 import java.util.List;
 
-public class DeleteDialogActivity  extends Activity implements ProfileActivityView {
+public class DeleteDialogActivity extends Activity implements ProfileActivityView {
 
     private static final String TAG = "DeleteDialogActivity";
 

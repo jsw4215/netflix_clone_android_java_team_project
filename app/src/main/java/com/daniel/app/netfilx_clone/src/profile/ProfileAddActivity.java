@@ -1,7 +1,5 @@
 package com.daniel.app.netfilx_clone.src.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,8 +18,6 @@ import com.daniel.app.netfilx_clone.src.profile.profile_selection.ProfileSelecti
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
 
 import java.util.List;
-
-import retrofit2.http.Url;
 
 public class ProfileAddActivity extends BaseActivity implements ProfileActivityView {
 

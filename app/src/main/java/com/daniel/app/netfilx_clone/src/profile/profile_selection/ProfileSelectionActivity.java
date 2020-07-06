@@ -1,6 +1,5 @@
 package com.daniel.app.netfilx_clone.src.profile.profile_selection;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,10 +12,6 @@ import android.widget.ImageView;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
-import com.daniel.app.netfilx_clone.src.comingsoon.utils.ComingRecyclerViewAdapter;
-import com.daniel.app.netfilx_clone.src.profile.ProfileService;
-import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
-import com.daniel.app.netfilx_clone.src.profile.models.result;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.interfaces.ProfileSelectionActivityView;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.models.results;
 import com.daniel.app.netfilx_clone.src.profile.profile_selection.models.selection_detail;
