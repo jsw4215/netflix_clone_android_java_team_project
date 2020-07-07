@@ -24,72 +24,87 @@
         android:id="@+id/zzim_poster1"
         android:layout_row="0"
         android:layout_column="0"
-        android:layout_width="100dp"
-        android:layout_height="140dp"/>
+        android:layout_width="115dp"
+        android:layout_height="150dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster2"
             android:layout_row="0"
             android:layout_column="1"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster3"
             android:layout_row="0"
             android:layout_column="2"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster4"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster5"
             android:layout_row="1"
             android:layout_column="1"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster6"
             android:layout_row="1"
             android:layout_column="2"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster7"
             android:layout_row="2"
             android:layout_column="0"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster8"
             android:layout_row="2"
             android:layout_column="1"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
         <ImageView
             android:src="@drawable/poster_sample"
             android:id="@+id/zzim_poster9"
             android:layout_row="2"
             android:layout_column="2"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="115dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"/>
 
 
     </GridLayout>

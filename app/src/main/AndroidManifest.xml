@@ -21,8 +21,10 @@
         <activity android:name=".src.main.MovieActivity" />
         <activity android:name=".src.main.utils.MainLoadingActivity" />
         <activity android:name=".src.profile.ProfileAddActivity" />
-        <activity android:name=".src.comingsoon.ComingSoonActivity" />
-        <activity android:name=".src.main.toptools.ZzimActivity" />
+        <activity android:name=".src.comingsoon.ComingSoonActivity">
+        </activity>
+        <activity android:name=".src.main.toptools.ZzimActivity">
+        </activity>
         <activity
             android:name=".src.main.toptools.GenreActivity"
             android:theme="@style/Theme.Transparent" />
@@ -43,7 +45,8 @@
         <activity
             android:name=".src.profile.utils.DeleteDialogActivity"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
-        <activity android:name=".src.search.SearchActivity" />
+        <activity android:name=".src.search.SearchActivity">
+        </activity>
         <activity android:name=".src.main.SavedContentsActivity" />
         <activity android:name=".ui.more.MoreActivity" />
         <activity android:name=".src.register.RegisterActivity5" />
@@ -57,7 +60,8 @@
         <activity android:name=".src.signin.SignInActivity">
         </activity>
         <activity android:name=".src.splash.SplashActivity" />
-        <activity android:name=".src.profile.ProfileActivity" />
+        <activity android:name=".src.profile.ProfileActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -18,8 +18,8 @@
             <TextView
                 android:layout_centerInParent="true"
                 android:textColor="@color/white"
-                android:text="아이콘 선택"
-                android:textSize="15sp"
+                android:text="이미지 선택"
+                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -27,7 +27,7 @@
                 android:id="@+id/profile_selection_back_arrow"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/ic_back_arrow2"
+                app:srcCompat="@drawable/ic_back_arrow"
                 android:layout_alignParentStart="true">
 
             </ImageView>

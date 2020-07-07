@@ -28,7 +28,7 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
     int mProfileId;
     int mImgId;
 
-    TextView mProfileChangeCancel;
+    ImageView mProfileChangeCancel;
     TextView mProfileChangeSave;
     ImageView mProfileChangeIvProfile;
     TextView mProfileChangeTvProfile;

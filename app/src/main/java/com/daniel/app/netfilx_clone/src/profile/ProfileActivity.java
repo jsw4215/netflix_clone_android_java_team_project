@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,8 +39,8 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
     ImageView mIvEditProfile3;
     ImageView mIvEditProfile4;
 
-    TextView mTvProfileChange;
-    TextView mTvProfileComplete;
+    ImageView mTvProfileChange;
+    ImageView mTvProfileComplete;
     List<result> mResult = new ArrayList<>();
     int mAddAvailable;
     String mTag_available = "available";
@@ -71,6 +73,18 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
         mIvEditProfile2.setVisibility(View.GONE);
         mIvEditProfile3.setVisibility(View.GONE);
         mIvEditProfile4.setVisibility(View.GONE);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decor = getWindow().getDecorView();
+            decor.setSystemUiVisibility(0);
+        }
 
         String temp = sSharedPreferences.getString(X_ACCESS_TOKEN,null);
 

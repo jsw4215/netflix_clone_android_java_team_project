@@ -46,7 +46,7 @@ public class LikeActivity extends AppCompatActivity {
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
         if(action==MotionEvent.ACTION_DOWN) {
-            mLinearLayout.setVisibility(View.VISIBLE);
+            finish();
         }
         return false;
     }

@@ -74,7 +74,8 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
         public void onBind(Contents item) {
             mTitle.setText(item.getTitle());
-            mPoster.setImageResource(item.getImgURL());
+            mPoster.setImageResource(R.drawable.poster_sample);
+            //mPoster.setImageResource(item.getImgURL());
         }
     }
 

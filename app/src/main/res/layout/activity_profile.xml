@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,40 +9,40 @@
 
     <ImageView
         android:id="@+id/profile_iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/netflix_logo_top_fix"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <ImageView
         android:id="@+id/profile_tv_complete"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
         android:layout_alignParentStart="true"
         android:textColor="@color/white"
-        android:layout_toEndOf="@+id/profile_iv_logo"
-        android:padding="30dp"
         android:textSize="20sp"
-        android:text="완료"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:srcCompat="@drawable/ic_back_arrow"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 
-    <TextView
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
         android:id="@+id/profile_tv_change"
         android:layout_alignParentEnd="true"
         android:textColor="@color/white"
-        android:layout_toEndOf="@+id/profile_iv_logo"
-        android:padding="30dp"
-        android:textSize="20sp"
-        android:text="변경"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:srcCompat="@drawable/ic_edit_white"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
 
     <TextView
         android:id="@+id/profile_tv_select_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Netflix를 시철할 프로필을 선택하세요."
+        android:text="Netflix를 시청할 프로필을 선택하세요."
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:layout_marginLeft="25dp"
@@ -66,8 +67,8 @@
 
     <ImageView
         android:id="@+id/profile_iv_profile1"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="30dp"
         android:layout_marginRight="0dp"
         android:layout_row="0"
@@ -89,8 +90,8 @@
 
     <ImageView
         android:id="@+id/profile_iv_profile2"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="0dp"
         android:layout_row="0"
@@ -113,8 +114,8 @@
 
     <ImageView
         android:id="@+id/profile_iv_profile3"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_row="1"
@@ -136,8 +137,8 @@
 
     <ImageView
         android:id="@+id/profile_iv_profile4"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginRight="0dp"
         android:layout_row="1"
         android:layout_column="1"

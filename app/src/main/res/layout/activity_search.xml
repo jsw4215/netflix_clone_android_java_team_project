@@ -69,7 +69,7 @@
 
         <TextView
             android:layout_margin="20dp"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="@color/light_gray"
             android:text="인기 검색어"
             android:layout_width="match_parent"

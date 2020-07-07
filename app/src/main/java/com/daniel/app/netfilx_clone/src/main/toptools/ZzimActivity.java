@@ -2,15 +2,114 @@ package com.daniel.app.netfilx_clone.src.main.toptools;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.daniel.app.netfilx_clone.R;
+import com.daniel.app.netfilx_clone.src.BaseActivity;
+import com.daniel.app.netfilx_clone.src.main.MainService;
+import com.daniel.app.netfilx_clone.src.main.interfaces.MainActivityView;
+import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResponse;
+import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResult;
+import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
 
-public class ZzimActivity extends AppCompatActivity {
+public class ZzimActivity extends BaseActivity implements MainActivityView {
+
+    private static final String TAG = "ZzimActivity";
+
+    int mProfileId;
+
+    ImageView mZzimPoster1;
+    ImageView mZzimPoster2;
+    ImageView mZzimPoster3;
+    ImageView mZzimPoster4;
+    ImageView mZzimPoster5;
+    ImageView mZzimPoster6;
+    ImageView mZzimPoster7;
+    ImageView mZzimPoster8;
+    ImageView mZzimPoster9;
+
+    ZzimResponse mZzimResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zzim);
+
+        Intent intent = getIntent();
+
+        mProfileId = intent.getIntExtra("profileId",2);
+
+        tryGetZzim(mProfileId);
+
+    }
+
+    private void setImage(ZzimResponse zzimResponse){
+
+        mZzimPoster1 = findViewById(R.id.zzim_poster1);
+        mZzimPoster2 = findViewById(R.id.zzim_poster2);
+        mZzimPoster3 = findViewById(R.id.zzim_poster3);
+        mZzimPoster4 = findViewById(R.id.zzim_poster4);
+        mZzimPoster5 = findViewById(R.id.zzim_poster5);
+        mZzimPoster6 = findViewById(R.id.zzim_poster6);
+        mZzimPoster7 = findViewById(R.id.zzim_poster7);
+        mZzimPoster8 = findViewById(R.id.zzim_poster8);
+        mZzimPoster9 = findViewById(R.id.zzim_poster9);
+
+        new DownloadImageTask(mZzimPoster1).execute(zzimResponse.getResult().get(0).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster2).execute(zzimResponse.getResult().get(1).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster3).execute(zzimResponse.getResult().get(2).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster4).execute(zzimResponse.getResult().get(3).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster5).execute(zzimResponse.getResult().get(4).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster6).execute(zzimResponse.getResult().get(5).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster7).execute(zzimResponse.getResult().get(6).getThumbnailImgUrl());
+        new DownloadImageTask(mZzimPoster8).execute(zzimResponse.getResult().get(7).getThumbnailImgUrl());
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decor = getWindow().getDecorView();
+            decor.setSystemUiVisibility(0);
+        }
+
+    }
+
+    private void tryGetZzim(int mProfileId) {
+            showProgressDialog();
+
+            final MainService mainService = new MainService(this);
+            mainService.getZzim(mProfileId);
+
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+
+    }
+
+    @Override
+    public void zzzimSuccess(ZzimResponse zzimResponse) {
+        Log.d(TAG, "zzzimSuccess: ");
+        hideProgressDialog();
+
+        this.mZzimResponse = zzimResponse;
+
+        setImage(zzimResponse);
+
+    }
+
+    @Override
+    public void validateFailure(String message) {
+
     }
 }

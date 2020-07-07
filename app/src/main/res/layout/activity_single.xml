@@ -15,8 +15,18 @@
     android:background="@color/black"
     tools:context=".src.main.single.SingleActivity">
 
+    <FrameLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/single_dim_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
     <RelativeLayout
-        android:id="@+id/single_dim_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -31,8 +41,8 @@
 
     <ImageView
         android:id="@+id/single_iv_poster"
-        android:layout_width="100dp"
-        android:layout_height="140dp"
+        android:layout_width="180dp"
+        android:layout_height="210dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:src="@drawable/poster_sample" />
@@ -104,7 +114,7 @@
             android:id="@+id/single_btn_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_gray"
+            android:background="@drawable/grey_border"
             android:backgroundTint="@color/light_gray" />
 
         <TextView
@@ -131,7 +141,7 @@
                 android:id="@+id/single_btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dark_gray"
+                android:background="@drawable/dark_grey_border"
                 android:backgroundTint="@color/dark_gray" />
 
             <TextView
@@ -146,16 +156,8 @@
 
         </FrameLayout>
 
-    <TextView
-        android:id="@+id/single_tv_context"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/single_fl_save"
-        android:text="18세기 조선 , 블라블라"
-        android:textColor="@color/white"
-        android:textSize="12sp" />
-
     </RelativeLayout>
+    </FrameLayout>
 
     <RelativeLayout
         android:background="@color/black"
@@ -165,10 +167,20 @@
         android:layout_below="@id/single_dim_background">
 
         <TextView
+            android:id="@+id/single_tv_context"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="18세기 조선 , 블라블라"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
             android:layout_alignParentStart="true"
             android:id="@+id/single_tv_appearance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/single_tv_context"
             android:layout_margin="10dp"
             android:text="출연: 장혁, 수애, 박민하"
             android:textColor="@color/gray" />
@@ -191,21 +203,24 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/single_ll_zzim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/single_iv_zzim"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_add_white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="3dp"
+                    android:textSize="10sp"
                     android:text="내가 찜한 컨텐츠"
                     android:textColor="@color/white" />
 
@@ -217,7 +232,7 @@
                 android:layout_margin="10dp"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingRight="10dp">
 
                 <ImageView
                     android:id="@+id/single_like_icon"
@@ -232,6 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
+                    android:textSize="10sp"
                     android:text="평가"
                     android:textColor="@color/white" />
 
@@ -243,7 +259,7 @@
                 android:layout_margin="10dp"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingRight="10dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -257,13 +273,14 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
                     android:text="공유"
+                    android:textSize="10sp"
                     android:textColor="@color/white" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:paddingRight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -280,6 +297,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="3dp"
+                    android:textSize="10sp"
                     android:text="평가"
                     android:textColor="@color/white" />
 
@@ -309,52 +327,58 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster1"
             android:src="@drawable/poster_sample"
             android:layout_row="0"
             android:layout_column="0"
-            android:layout_width="100dp"
-            android:layout_height="140dp"/>
+            android:layout_width="120dp"
+            android:layout_height="170dp"/>
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster2"
                 android:src="@drawable/poster_sample"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:layout_width="100dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="170dp"/>
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster3"
                 android:src="@drawable/poster_sample"
                 android:layout_row="0"
                 android:layout_column="2"
-                android:layout_width="100dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="170dp"/>
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster4"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:layout_width="100dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="170dp"/>
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster5"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:layout_width="100dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="170dp"/>
 
             <ImageView
+                android:layout_margin="2dp"
                 android:id="@+id/single_similar_poster6"
                 android:src="@drawable/poster_sample"
                 android:layout_row="1"
                 android:layout_column="2"
-                android:layout_width="100dp"
-                android:layout_height="140dp"/>
+                android:layout_width="120dp"
+                android:layout_height="170dp"/>
 
         </GridLayout>
 

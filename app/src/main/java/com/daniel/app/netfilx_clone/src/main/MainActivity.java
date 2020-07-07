@@ -23,6 +23,7 @@ import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
 import com.daniel.app.netfilx_clone.src.main.interfaces.MainActivityView;
 import com.daniel.app.netfilx_clone.src.main.toptools.GenreActivity;
+import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResponse;
 import com.daniel.app.netfilx_clone.src.splash.SplashActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -185,6 +186,11 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     public void validateSuccess(String text) {
         hideProgressDialog();
+    }
+
+    @Override
+    public void zzzimSuccess(ZzimResponse zzimResponse) {
+
     }
 
     @Override
