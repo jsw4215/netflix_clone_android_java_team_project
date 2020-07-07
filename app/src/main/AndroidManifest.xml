@@ -18,7 +18,8 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
         <activity android:name=".src.main.single.VideoActivity"></activity>
-        <activity android:name=".src.main.MovieActivity" />
+        <activity android:name=".src.main.MovieActivity">
+        </activity>
         <activity android:name=".src.main.utils.MainLoadingActivity" />
         <activity android:name=".src.profile.ProfileAddActivity" />
         <activity android:name=".src.comingsoon.ComingSoonActivity">
@@ -30,11 +31,6 @@
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".src.main.single.LikeActivity" />
         <activity android:name=".src.main.single.SingleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".src.profile.profile_selection.ProfileSelectionActivity" />
         <activity android:name=".src.profile.ProfileChangeActivity" />
@@ -61,6 +57,11 @@
         </activity>
         <activity android:name=".src.splash.SplashActivity" />
         <activity android:name=".src.profile.ProfileActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

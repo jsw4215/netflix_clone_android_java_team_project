@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +26,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.main.single.interfaces.SingleActivityView;
@@ -31,6 +37,7 @@ import com.daniel.app.netfilx_clone.src.main.single.models.EvaluateResponse;
 import com.daniel.app.netfilx_clone.src.main.single.models.HeartResponse;
 import com.daniel.app.netfilx_clone.src.main.single.models.HeartResult;
 import com.daniel.app.netfilx_clone.src.main.single.models.SingleResponse;
+import com.daniel.app.netfilx_clone.src.main.single.utils.BlurTransformation;
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
 
 import java.io.IOException;
@@ -38,6 +45,9 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 public class SingleActivity extends BaseActivity implements SingleActivityView {
 
@@ -48,6 +58,7 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
     ImageView mBackgound;
     LinearLayout mLinearLayout;
     LinearLayout mLlZzim;
+    LinearLayout mSaved;
     ImageView mIvZzim;
     ImageView mBackArrow;
     ImageView mPoster;
@@ -133,9 +144,21 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         mLlZzim = findViewById(R.id.single_ll_zzim);
         mIvZzim = findViewById(R.id.single_iv_zzim);
         mBackgound = findViewById(R.id.single_dim_background);
+        mSaved = findViewById(R.id.single_saved);
 
         //백그라운드 블러
         //url 이미지를 bitmap으로 가져온다.
+
+        RequestOptions options = new RequestOptions();
+
+        options.override(MATCH_PARENT, MATCH_PARENT);
+
+        options.centerCrop();
+
+        options.transform(new BlurTransformation(this, 100));
+
+        Glide.with(this).setDefaultRequestOptions(options).asBitmap()
+                .load(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl()).into(mBackgound);
 
         //Bitmap bitmap = fromUrltoBitmap(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl());
 
@@ -386,6 +409,7 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
     }
 
     //............
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showPopup(final Activity context, Point p) {
 
         // Inflate the popup_layout.xml
@@ -399,16 +423,19 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         // Creating the PopupWindow
         popup = new PopupWindow(context);
         popup.setContentView(layout);
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        popup.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         // Some offset to align the popup a bit to the right, and a bit down, relative to button's position.
-        int OFFSET_X = -250;
-        int OFFSET_Y = -350;
+        int OFFSET_X = -210;
+        int OFFSET_Y = -320;
 
         // Clear the default translucent background
         popup.setBackgroundDrawable(new BitmapDrawable());
 
         // Displaying the popup at the specified location, + offsets.
-        popup.showAtLocation(layout, Gravity.NO_GRAVITY, p.x + OFFSET_X, p.y + OFFSET_Y);
+        popup.showAsDropDown(mLikeIcon, OFFSET_X, OFFSET_Y);
 
         dimBehind(popup);
 
@@ -447,214 +474,6 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
             }
         });
 
-    }
-
-    public Bitmap Fastblur(Bitmap sentBitmap, double scale, int radius) {
-
-        int width = (int) Math.round(sentBitmap.getWidth() * scale);
-        int height = (int) Math.round(sentBitmap.getHeight() * scale);
-        sentBitmap = Bitmap.createScaledBitmap(sentBitmap, width, height, false);
-
-        Bitmap bitmap = sentBitmap.copy(sentBitmap.getConfig(), true);
-
-        if (radius < 1) {
-            return (null);
-        }
-
-        int w = bitmap.getWidth();
-        int h = bitmap.getHeight();
-
-        int[] pix = new int[w * h];
-        Log.e("pix", w + " " + h + " " + pix.length);
-        bitmap.getPixels(pix, 0, w, 0, 0, w, h);
-
-        int wm = w - 1;
-        int hm = h - 1;
-        int wh = w * h;
-        int div = radius + radius + 1;
-
-        int r[] = new int[wh];
-        int g[] = new int[wh];
-        int b[] = new int[wh];
-        int rsum, gsum, bsum, x, y, i, p, yp, yi, yw;
-        int vmin[] = new int[Math.max(w, h)];
-
-        int divsum = (div + 1) >> 1;
-        divsum *= divsum;
-        int dv[] = new int[256 * divsum];
-        for (i = 0; i < 256 * divsum; i++) {
-            dv[i] = (i / divsum);
-        }
-
-        yw = yi = 0;
-
-        int[][] stack = new int[div][3];
-        int stackpointer;
-        int stackstart;
-        int[] sir;
-        int rbs;
-        int r1 = radius + 1;
-        int routsum, goutsum, boutsum;
-        int rinsum, ginsum, binsum;
-
-        for (y = 0; y < h; y++) {
-            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = 0;
-            for (i = -radius; i <= radius; i++) {
-                p = pix[yi + Math.min(wm, Math.max(i, 0))];
-                sir = stack[i + radius];
-                sir[0] = (p & 0xff0000) >> 16;
-                sir[1] = (p & 0x00ff00) >> 8;
-                sir[2] = (p & 0x0000ff);
-                rbs = r1 - Math.abs(i);
-                rsum += sir[0] * rbs;
-                gsum += sir[1] * rbs;
-                bsum += sir[2] * rbs;
-                if (i > 0) {
-                    rinsum += sir[0];
-                    ginsum += sir[1];
-                    binsum += sir[2];
-                } else {
-                    routsum += sir[0];
-                    goutsum += sir[1];
-                    boutsum += sir[2];
-                }
-            }
-            stackpointer = radius;
-
-            for (x = 0; x < w; x++) {
-
-                r[yi] = dv[rsum];
-                g[yi] = dv[gsum];
-                b[yi] = dv[bsum];
-
-                rsum -= routsum;
-                gsum -= goutsum;
-                bsum -= boutsum;
-
-                stackstart = stackpointer - radius + div;
-                sir = stack[stackstart % div];
-
-                routsum -= sir[0];
-                goutsum -= sir[1];
-                boutsum -= sir[2];
-
-                if (y == 0) {
-                    vmin[x] = Math.min(x + radius + 1, wm);
-                }
-                p = pix[yw + vmin[x]];
-
-                sir[0] = (p & 0xff0000) >> 16;
-                sir[1] = (p & 0x00ff00) >> 8;
-                sir[2] = (p & 0x0000ff);
-
-                rinsum += sir[0];
-                ginsum += sir[1];
-                binsum += sir[2];
-
-                rsum += rinsum;
-                gsum += ginsum;
-                bsum += binsum;
-
-                stackpointer = (stackpointer + 1) % div;
-                sir = stack[(stackpointer) % div];
-
-                routsum += sir[0];
-                goutsum += sir[1];
-                boutsum += sir[2];
-
-                rinsum -= sir[0];
-                ginsum -= sir[1];
-                binsum -= sir[2];
-
-                yi++;
-            }
-            yw += w;
-        }
-        for (x = 0; x < w; x++) {
-            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = 0;
-            yp = -radius * w;
-            for (i = -radius; i <= radius; i++) {
-                yi = Math.max(0, yp) + x;
-
-                sir = stack[i + radius];
-
-                sir[0] = r[yi];
-                sir[1] = g[yi];
-                sir[2] = b[yi];
-
-                rbs = r1 - Math.abs(i);
-
-                rsum += r[yi] * rbs;
-                gsum += g[yi] * rbs;
-                bsum += b[yi] * rbs;
-
-                if (i > 0) {
-                    rinsum += sir[0];
-                    ginsum += sir[1];
-                    binsum += sir[2];
-                } else {
-                    routsum += sir[0];
-                    goutsum += sir[1];
-                    boutsum += sir[2];
-                }
-
-                if (i < hm) {
-                    yp += w;
-                }
-            }
-            yi = x;
-            stackpointer = radius;
-            for (y = 0; y < h; y++) {
-                // Preserve alpha channel: ( 0xff000000 & pix[yi] )
-                pix[yi] = ( 0xff000000 & pix[yi] ) | ( dv[rsum] << 16 ) | ( dv[gsum] << 8 ) | dv[bsum];
-
-                rsum -= routsum;
-                gsum -= goutsum;
-                bsum -= boutsum;
-
-                stackstart = stackpointer - radius + div;
-                sir = stack[stackstart % div];
-
-                routsum -= sir[0];
-                goutsum -= sir[1];
-                boutsum -= sir[2];
-
-                if (x == 0) {
-                    vmin[y] = Math.min(y + r1, hm) * w;
-                }
-                p = x + vmin[y];
-
-                sir[0] = r[p];
-                sir[1] = g[p];
-                sir[2] = b[p];
-
-                rinsum += sir[0];
-                ginsum += sir[1];
-                binsum += sir[2];
-
-                rsum += rinsum;
-                gsum += ginsum;
-                bsum += binsum;
-
-                stackpointer = (stackpointer + 1) % div;
-                sir = stack[stackpointer];
-
-                routsum += sir[0];
-                goutsum += sir[1];
-                boutsum += sir[2];
-
-                rinsum -= sir[0];
-                ginsum -= sir[1];
-                binsum -= sir[2];
-
-                yi += w;
-            }
-        }
-
-        Log.e("pix", w + " " + h + " " + pix.length);
-        bitmap.setPixels(pix, 0, w, 0, 0, w, h);
-
-        return (bitmap);
     }
 
     @Override

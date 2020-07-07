@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
+import com.daniel.app.netfilx_clone.src.main.MainActivity;
 import com.daniel.app.netfilx_clone.src.main.utils.MainLoadingActivity;
 import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
 import com.daniel.app.netfilx_clone.src.profile.models.result;
@@ -95,16 +96,17 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
         mIvProfile1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(mIvProfile4.getTag().equals("available")){
+                if(mIvProfile1.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
-                    mImgUrl=mResult.get(0).getProfileImgUrl();
-                    intent.putExtra("imgUrl",mImgUrl);
+                    intent.putExtra("profileId",mResult.get(0).getProfileId());
                     startActivity(intent);
-//                }else if(mIvProfile4.getTag().equals("exist")){
-//                    Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
+                }else if(mIvProfile1.getTag().equals("exist")){
+                    Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+                    intent.putExtra("calling_activity","profile_activity");
+                    intent.putExtra("profileId",mResult.get(0).getProfileId());
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -115,9 +117,12 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                 if(mIvProfile2.getTag().equals("available")){
                     Log.d(TAG, "onClick: [if avilable] inside " + mResult.size());
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
+                    intent.putExtra("profileId",mResult.get(1).getProfileId());
                     startActivity(intent);
                 }else if(mIvProfile2.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+                    intent.putExtra("calling_activity","profile_activity");
+                    intent.putExtra("profileId",mResult.get(1).getProfileId());
                     startActivity(intent);
                     finish();
                 }
@@ -130,9 +135,12 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
             public void onClick(View v) {
                 if(mIvProfile3.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
+                    intent.putExtra("profileId",mResult.get(2).getProfileId());
                     startActivity(intent);
                 }else if(mIvProfile3.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+                    intent.putExtra("calling_activity","profile_activity");
+                    intent.putExtra("profileId",mResult.get(2).getProfileId());
                     startActivity(intent);
                     finish();
                 }
@@ -145,9 +153,12 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
             public void onClick(View v) {
                 if(mIvProfile4.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
+                    intent.putExtra("profileId",mResult.get(3).getProfileId());
                     startActivity(intent);
                 }else if(mIvProfile4.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+                    intent.putExtra("calling_activity","profile_activity");
+                    intent.putExtra("profileId",mResult.get(3).getProfileId());
                     startActivity(intent);
                     finish();
                 }

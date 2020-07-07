@@ -14,9 +14,6 @@
             <stroke
                 android:width="2dp"
                 android:color="@color/light_gray"/>
-            <solid
-                android:backgroundTint = "@color/loginColor"
-                android:color="@color/white"/>
             <corners
                 android:radius="3dp"/>
         </shape>

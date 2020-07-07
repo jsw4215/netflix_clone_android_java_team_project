@@ -31,25 +31,9 @@
                     android:src="@drawable/main_dummy"
                     tools:ignore="MissingConstraints" />
 
-                <ViewFlipper
-                    android:id="@+id/main_vf_top"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <include
-                        android:id="@+id/main_top_container"
-                        layout="@layout/toolbar_main" />
-
                     <include
                         android:id="@+id/main_top_container2"
                         layout="@layout/toolbar_main_movie" />
-
-
-                    <include
-                        android:id="@+id/main_top_container3"
-                        layout="@layout/toolbar_main_tv" />
-
-                </ViewFlipper>
 
             </FrameLayout>
 
@@ -203,24 +187,26 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
-                android:layout_marginBottom="15dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/movie_rv_zzim"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+</androidx.recyclerview.widget.RecyclerView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
-                android:text="몰아보기 추천 정치 TV 쇼"
+                android:text="맞춤 추천 영화"
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
-                android:layout_marginBottom="15dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/movie_rv_recommend"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -245,10 +231,10 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
-                android:layout_marginBottom="15dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/movie_rv_netflix_origin"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -292,7 +278,9 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
 
-            <include layout="@layout/main_ranking" />
+            <include
+                android:id="@+id/movie_inc_top10"
+                layout="@layout/main_ranking" />
 
             <!--절찬 스트리밍 중-->
 

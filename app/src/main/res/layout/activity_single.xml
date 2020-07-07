@@ -16,6 +16,7 @@
     tools:context=".src.main.single.SingleActivity">
 
     <FrameLayout
+        android:id="@+id/single_fl"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -164,7 +165,7 @@
         android:id="@+id/single_rl_below_poster"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/single_dim_background">
+        android:layout_below="@id/single_btn_save">
 
         <TextView
             android:id="@+id/single_tv_context"
@@ -279,6 +280,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/single_saved"
                 android:paddingLeft="20dp"
                 android:paddingRight="10dp"
                 android:layout_width="wrap_content"

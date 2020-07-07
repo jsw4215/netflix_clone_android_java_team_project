@@ -14,6 +14,9 @@ import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.main.MainService;
 import com.daniel.app.netfilx_clone.src.main.interfaces.MainActivityView;
+import com.daniel.app.netfilx_clone.src.main.models.NetflixOriginalResponse;
+import com.daniel.app.netfilx_clone.src.main.models.RecommendResponse;
+import com.daniel.app.netfilx_clone.src.main.models.Top10Response;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResponse;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResult;
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
@@ -105,6 +108,21 @@ public class ZzimActivity extends BaseActivity implements MainActivityView {
         this.mZzimResponse = zzimResponse;
 
         setImage(zzimResponse);
+
+    }
+
+    @Override
+    public void top10Success(Top10Response top10Response) {
+
+    }
+
+    @Override
+    public void recommendSuccess(RecommendResponse recommendResponse) {
+
+    }
+
+    @Override
+    public void netflixOriginalSuccess(NetflixOriginalResponse netflixOriginalResponse) {
 
     }
 
