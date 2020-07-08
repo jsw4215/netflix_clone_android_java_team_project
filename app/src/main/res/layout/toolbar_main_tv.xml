@@ -14,14 +14,14 @@
 
 
             <ImageView
-                android:id="@+id/main_tool_top_icon"
+                android:id="@+id/main_tool_top_icon_TV"
                 android:src="@drawable/n_icon"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:padding="7dp" />
 
             <TextView
-                android:id="@+id/main_tv_top_program1"
+                android:id="@+id/main_tv_top_program_TV"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_gravity="center_vertical"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/main_tv_top_genre1"
+                android:id="@+id/main_tv_top_genre_TV"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_gravity="center_vertical"

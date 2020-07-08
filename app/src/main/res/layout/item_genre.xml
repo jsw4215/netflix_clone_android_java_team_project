@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/genre_tv_item"
         android:text="장르명"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"

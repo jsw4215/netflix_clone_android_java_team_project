@@ -50,7 +50,7 @@ public class MainLoadingActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if(mFrom.equals("profile_activity")) {
+                if(mFrom.equals("profile_activity")||mFrom.equals("movie_activity")) {
 
                     Intent intent = new Intent(MainLoadingActivity.this, MainActivity.class);
                     intent.putExtra("profileId",mProfileId);

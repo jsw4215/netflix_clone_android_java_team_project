@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@android:color/transparent"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".src.main.toptools.GenreActivity">
@@ -14,20 +15,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_rv_genre"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <Button
+    <ImageView
         android:id="@+id/genre_btn_close"
         android:layout_width="72dp"
         android:layout_height="70dp"
         android:layout_gravity="center|bottom"
-        android:layout_marginRight="20dp"
         android:layout_marginBottom="70dp"
-        android:background="@drawable/border"
-        android:text="+"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:src="@drawable/x_mark_white"
         android:textSize="30sp" />
 
     </FrameLayout>

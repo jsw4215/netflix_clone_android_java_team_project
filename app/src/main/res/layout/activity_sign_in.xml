@@ -31,6 +31,7 @@
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:maxLines="1"
                 app:boxBackgroundMode="filled"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
@@ -45,6 +46,7 @@
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
+                android:inputType="text"
                 android:hint="이메일 주소 또는 전화번호"
                 android:padding="15dp"
                 android:textColor="#ffff" />
@@ -60,6 +62,7 @@
                 android:layout_marginTop="15dp"
                 android:padding="15dp"
                 android:layout_marginEnd="20dp"
+                android:maxLines="1"
                 android:background="@drawable/login_radius"
                 app:boxBackgroundMode="filled"
                 app:boxCornerRadiusTopEnd="10dp"

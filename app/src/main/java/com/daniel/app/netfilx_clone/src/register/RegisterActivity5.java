@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -35,6 +36,11 @@ public class RegisterActivity5 extends BaseActivity implements RegisterActivityV
     TextInputEditText mBirthYear;
     String mSelectedBD;
     String mSelectedBM;
+    CheckBox chkAll;
+    CheckBox chk1;
+    CheckBox chk2;
+    CheckBox chk3;
+    CheckBox chk4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,11 @@ public class RegisterActivity5 extends BaseActivity implements RegisterActivityV
         mBirthYear = findViewById(R.id.reg_et_pay_birth_year);
         mBirthDate = findViewById(R.id.reg_card_birth_date);
         mBirthMonth = findViewById(R.id.reg_card_birth_month);
+        chkAll = findViewById(R.id.chk_sign_up_agreement_all);
+        chk1 = findViewById(R.id.chk_sign_up_agreement_1);
+        chk2 = findViewById(R.id.chk_sign_up_agreement_2);
+        chk3 = findViewById(R.id.chk_sign_up_agreement_3);
+        chk4 = findViewById(R.id.chk_sign_up_agreement_4);
 
         Intent intent = getIntent();
 
@@ -154,20 +165,58 @@ public class RegisterActivity5 extends BaseActivity implements RegisterActivityV
         Log.d(TAG, "validateFailure: ");
     }
 
-    public void customOnClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_btn_hello_world:
-                tryGetTest();
-                break;
-            default:
-                break;
-        }
-    }
-
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
         Intent intent = new Intent(RegisterActivity5.this, DialogActivity.class);
         startActivity(intent);
+    }
+
+    public void customOnClick(View view) {
+        switch (view.getId()) {
+            case R.id.chk_sign_up_agreement_all:
+                if (chkAll.isChecked()){
+                    chk1.setChecked(true);
+                    chk2.setChecked(true);
+                    chk3.setChecked(true);
+                    chk4.setChecked(true);
+                }else if(!chkAll.isChecked()){
+                    chk1.setChecked(false);
+                    chk2.setChecked(false);
+                    chk3.setChecked(false);
+                    chk4.setChecked(false);
+                }
+                break;
+            case R.id.chk_sign_up_agreement_1:
+                if (chk1.isChecked() && chk2.isChecked() && chk3.isChecked() && chk4.isChecked()){
+                    chkAll.setChecked(true);
+                }else if (chkAll.isChecked() && !chk1.isChecked()){
+                    chkAll.setChecked(false);
+                }
+                break;
+            case R.id.chk_sign_up_agreement_2:
+                if (chk1.isChecked() && chk2.isChecked() && chk3.isChecked() && chk4.isChecked()){
+                    chkAll.setChecked(true);
+                }else if (chkAll.isChecked() && !chk2.isChecked()){
+                    chkAll.setChecked(false);
+                }
+                break;
+            case R.id.chk_sign_up_agreement_3:
+                if (chk1.isChecked() && chk2.isChecked() && chk3.isChecked() && chk4.isChecked()){
+                    chkAll.setChecked(true);
+                }else if (chkAll.isChecked() && !chk3.isChecked()){
+                    chkAll.setChecked(false);
+                }
+                break;
+            case R.id.chk_sign_up_agreement_4:
+                if (chk1.isChecked() && chk2.isChecked() && chk3.isChecked() && chk4.isChecked()){
+                    chkAll.setChecked(true);
+                }else if (chkAll.isChecked() && !chk4.isChecked()){
+                    chkAll.setChecked(false);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

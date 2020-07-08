@@ -1,90 +1,89 @@
 package com.daniel.app.netfilx_clone.src.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
 import android.widget.ViewFlipper;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
-import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
-import com.daniel.app.netfilx_clone.src.main.fragment.ComingSoonFragment;
-import com.daniel.app.netfilx_clone.src.main.fragment.MainFragment;
-import com.daniel.app.netfilx_clone.src.main.fragment.MoreFragment;
-import com.daniel.app.netfilx_clone.src.main.fragment.SavedContentsFragment;
-import com.daniel.app.netfilx_clone.src.main.fragment.SearchFragment;
 import com.daniel.app.netfilx_clone.src.main.interfaces.MainActivityView;
 import com.daniel.app.netfilx_clone.src.main.models.NetflixOriginalResponse;
 import com.daniel.app.netfilx_clone.src.main.models.RecommendResponse;
 import com.daniel.app.netfilx_clone.src.main.models.Top10Response;
+import com.daniel.app.netfilx_clone.src.main.single.SingleActivity;
+import com.daniel.app.netfilx_clone.src.main.single.VideoActivity;
 import com.daniel.app.netfilx_clone.src.main.toptools.GenreActivity;
+import com.daniel.app.netfilx_clone.src.main.toptools.ZzimActivity;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResponse;
+import com.daniel.app.netfilx_clone.src.main.utils.BottomNavigationViewHelper;
 import com.daniel.app.netfilx_clone.src.main.utils.MainLoadingActivity;
-import com.daniel.app.netfilx_clone.src.splash.SplashActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
 
 public class MainActivity extends BaseActivity implements MainActivityView {
 
     private static final String TAG = "MainActivity";
-
-    // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
-    private FragmentManager fragmentManager = getSupportFragmentManager();
-    // 4개의 메뉴에 들어갈 Fragment들
-    private MainFragment mainFragment = new MainFragment();
-    private SearchFragment searchFragment = new SearchFragment();
-    private ComingSoonFragment comingSoonFragement = new ComingSoonFragment();
-    private SavedContentsFragment savedContentsFragment = new SavedContentsFragment();
-    private MoreFragment moreFragment = new MoreFragment();
+    private static final int ACTIVITY_NUM = 0;
 
     int mProfileId;
 
+    Button mPlay;
     TextView mTvTopMovie;
     TextView mTvTopTv;
-    TextView mTvTopGenre;
+    TextView mTvTopZzim;
     Toolbar mTopContainer;
     ViewFlipper mViewFlipper;
     LinearLayout mLinearLayout;
+    LinearLayout mLlHeart;
+    ImageView mIvHeart;
+    BottomNavigationView mBottomNavigationView;
+    Context mContext = MainActivity.this;
+    String mTag_Check = "check";
+    String mTag_Plus = "plus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.temp_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        mBottomNavigationView = findViewById(R.id.nav_view);
         mTvTopMovie = findViewById(R.id.main_tv_top_movie);
         mTvTopTv = findViewById(R.id.main_tv_top_program);
-        mTvTopGenre = findViewById(R.id.main_tv_top_genre);
+        mTvTopZzim = findViewById(R.id.main_tv_top_zzim);
         mTopContainer = findViewById(R.id.main_top_container);
         mViewFlipper = findViewById(R.id.main_vf_top);
         mLinearLayout = findViewById(R.id.main_lin_top);
+        mPlay = findViewById(R.id.main_btn_play);
+        mLlHeart = findViewById(R.id.main_ll_heart);
+        mIvHeart = findViewById(R.id.main_iv_heart);
 
-        Intent intent = getIntent();
-        mProfileId = intent.getIntExtra("profileId",-1);
+        mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
-        int[] topToolId ={R.id.main_tv_top_program, R.id.main_tv_top_movie, R.id.main_tv_top_genre};
+        int[] topToolId ={R.id.main_tv_top_program, R.id.main_tv_top_movie, R.id.main_tv_top_zzim};
         View[] views = {mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_program),
-                mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_genre),
+                mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_zzim),
                 mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_movie),
                 mViewFlipper.getChildAt(1).findViewById(R.id.main_tv_top_movie),
-                mViewFlipper.getChildAt(1).findViewById(R.id.main_tv_top_genre),
+                mViewFlipper.getChildAt(1).findViewById(R.id.main_tv_top_zzim),
                 mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_program),
-                mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_genre)};
+                mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_zzim)};
 
         //
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -94,60 +93,13 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
-        //fragment
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        // 첫 화면 지정
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_layout, mainFragment).commitAllowingStateLoss();
-
-        // bottomNavigationView의 아이템이 선택될 때 호출될 리스너 등록
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                switch (item.getItemId()) {
-                    case R.id.navigation_home: {
-                        transaction.replace(R.id.frame_layout, mainFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.navigation_search: {
-                        transaction.replace(R.id.frame_layout, searchFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.navigation_coming_soon: {
-                        transaction.replace(R.id.frame_layout, comingSoonFragement).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.navigation_saved_contents: {
-                        transaction.replace(R.id.frame_layout, savedContentsFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.navigation_else: {
-                        transaction.replace(R.id.frame_layout, moreFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                }
-
-                return true;
-            }
-        });
-
-
+        setupBottomNavigationView();
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decor = getWindow().getDecorView();
             decor.setSystemUiVisibility(0);
         }
-
-        mTvTopGenre.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //내가찜한 콘텐츠 레이아웃
-            }
-        });
 
         mTvTopTv.setOnClickListener(new OnClickListener() {
             @Override
@@ -164,11 +116,41 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             }
         });
 
+        mViewFlipper.getChildAt(2).findViewById(R.id.main_tool_top_icon_TV).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mViewFlipper.setDisplayedChild(0);
+                        //setupProgramTopToolBar();
+                    }
+                },100);
+
+            }
+        });
+
+
+        mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_genre_TV).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, GenreActivity.class);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                intent.putExtra("fromWhere","TVProgramGenre");
+                intent.putExtra("profileId",mProfileId);
+                startActivity(intent);
+
+            }
+        });
+
         mTvTopMovie.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mTvTopTv.setVisibility(View.INVISIBLE);
+                mTvTopZzim.setVisibility(View.INVISIBLE);
                 //mTvTopMovie = findViewById(R.id.main_tv_top_movie);
                 mTvTopMovie.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.anim_top_to_right));
 
@@ -178,6 +160,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         mViewFlipper.setDisplayedChild(1);
 
                         Intent intent = new Intent(MainActivity.this, MainLoadingActivity.class);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         intent.putExtra("calling_activity","main_activity");
                         intent.putExtra("profileId",mProfileId);
                         startActivity(intent);
@@ -190,35 +173,70 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             }
         });
 
+        mTvTopZzim.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                mTvTopTv.setVisibility(View.INVISIBLE);
+                mTvTopMovie.setVisibility(View.INVISIBLE);
+                mTvTopZzim.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.anim_top_further_right));
 
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        Intent intent = new Intent(MainActivity.this, ZzimActivity.class);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        intent.putExtra("calling_activity","main_activity");
+                        intent.putExtra("profileId",mProfileId);
+                        startActivity(intent);
+
+                        //setupMovieTopToolBar();
+                        //클릭리스너 달기
+                    }
+                },500);
+
+            }
+        });
+
+        mLlHeart.setTag(mTag_Check);
+
+        mLlHeart.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mLlHeart.getTag().equals(mTag_Check)){
+                    mIvHeart.setImageResource(R.drawable.ic_add_white);
+                    mLlHeart.setTag(mTag_Plus);
+                }else{
+                    mIvHeart.setImageResource(R.drawable.ic_white_check);
+                    mLlHeart.setTag(mTag_Check);
+                }
+
+            }
+        });
+
+        final String dummy_url = "https://firebasestorage.googleapis.com/v0/b/netflix-51e85.appspot.com/o/videos%2FInception%20%EC%98%81%ED%99%94%20%EC%98%88%EA%B3%A0%ED%8E%B8.mp4?alt=media&token=0ad61c37-8118-4aff-8f49-a0935d5065ed";
+
+        mPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, VideoActivity.class);
+                intent.putExtra("videoUri",dummy_url);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
-    private void setupProgramTopToolBar(){
-
-        if(mViewFlipper.getChildAt(1)!=null) {
-            Log.d(TAG, "setupProgramTopToolBar: clicklistener is setted.");
-
-            mViewFlipper.getChildAt(1).findViewById(R.id.main_tv_top_program1).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, GenreActivity.class);
-                    intent.putExtra("fromWhere", "TVProgram");
-                    startActivity(intent);
-                }
-            });
-
-            mViewFlipper.getChildAt(1).findViewById(R.id.main_tv_top_genre1).setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, GenreActivity.class);
-                    intent.putExtra("fromWhere", "TVProgramGenre");
-                    startActivity(intent);
-                }
-            });
-        }
-
+    private void setupBottomNavigationView(){
+        Log.d(TAG,"setupBottomnavView: setting up BottomNavigationView");
+        BottomNavigationViewHelper.setupBottomNavigationView(mBottomNavigationView);
+        BottomNavigationViewHelper.enableNavigation(mContext, this, mBottomNavigationView);
+        Menu menu = mBottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
     }
 
 
@@ -248,15 +266,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
         }
 
-    }
-
-
-
-    private void tryGetTest() {
-        showProgressDialog();
-
-        final MainService mainService = new MainService(this);
-        mainService.getTest();
     }
 
     @Override
@@ -290,19 +299,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 
-    public void customOnClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_btn_hello_world:
-                tryGetTest();
-                break;
-            default:
-                break;
-        }
-    }
-
     @Override
     public void onBackPressed() {
         finish();
         super.onBackPressed();
     }
+
+
+
 }

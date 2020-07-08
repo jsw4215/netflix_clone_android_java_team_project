@@ -62,11 +62,6 @@ public class NetflixOriginRecyViewAdapter extends RecyclerView.Adapter<RecyclerV
                     Position = getAdapterPosition();
                     int ContentsId = mList.get(Position).getContentsId();
                     int ProfileId = ((MovieActivity) mContext).getIntent().getIntExtra("profileId",2);
-                    //String when = ((FoodActicity) mContext).setwhen();
-                    //String id_fromSearch = ((FoodActicity) mContext).setid();
-                    //((FoodActicity) mContext).setlist(when, mTvList.get(Position).getTitle(), mTvList.get(Position).getDetail());
-                    //ArrayList<FoodItem> list = new ArrayList<>();
-                    //list = ((FoodActicity)mContext).getlist();
                     Intent intent = new Intent(mContext, SingleActivity.class);
                     intent.putExtra("contentsId",ContentsId);
                     intent.putExtra("profileId",ProfileId);

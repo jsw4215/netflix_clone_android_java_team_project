@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster2"
-            android:src="@drawable/poster"
+            android:src="@drawable/poster_beauty_inside"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -26,7 +26,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster3"
-            android:src="@drawable/poster_sample"
+            android:src="@drawable/poster_wave"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -34,7 +34,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster4"
-            android:src="@drawable/poster"
+            android:src="@drawable/poster_voice"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -42,7 +42,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster5"
-            android:src="@drawable/poster_sample"
+            android:src="@drawable/poster_seventeen"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -50,7 +50,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster6"
-            android:src="@drawable/poster"
+            android:src="@drawable/poster_saet_byeol"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -58,7 +58,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster7"
-            android:src="@drawable/poster_sample"
+            android:src="@drawable/poster_queen"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -66,7 +66,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster8"
-            android:src="@drawable/poster"
+            android:src="@drawable/poster_king"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -74,7 +74,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster9"
-            android:src="@drawable/poster_sample"
+            android:src="@drawable/poster_killing_eve"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"
@@ -82,7 +82,7 @@
 
         <ImageView
             android:id="@+id/picked_contents_poster10"
-            android:src="@drawable/poster_sample"
+            android:src="@drawable/poster_graduation"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_width="100dp"

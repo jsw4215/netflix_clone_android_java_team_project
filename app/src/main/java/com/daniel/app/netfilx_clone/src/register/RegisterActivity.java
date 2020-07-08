@@ -62,4 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         Intent intent = new Intent(RegisterActivity.this, DialogActivity.class);
         startActivity(intent);
     }
+
+    public void customOnClick(View view) {
+    }
 }

@@ -2,6 +2,7 @@ package com.daniel.app.netfilx_clone.src.main.toptools.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +11,21 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daniel.app.netfilx_clone.R;
+import com.daniel.app.netfilx_clone.src.main.MovieActivity;
 import com.daniel.app.netfilx_clone.src.main.single.SingleActivity;
+import com.daniel.app.netfilx_clone.src.main.toptools.GenreActivity;
 
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final String TAG = "RecyclerViewAdapter";
+
     Context mContext;
     private ArrayList<String> mTvList;
     int Position;
     public static String fromwhere;
+    int mProfileId;
 
     public RecyclerViewAdapter(ArrayList<String> items, Context context) {
         mTvList = items;
@@ -56,20 +62,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 @Override
                 public void onClick(View v) {
 
+                        Intent intent = ((GenreActivity) mContext).getIntent();
+                        mProfileId = intent.getIntExtra("profileId",-1);
                         Position = getAdapterPosition();
-                        //String when = ((FoodActicity) mContext).setwhen();
-                        //String id_fromSearch = ((FoodActicity) mContext).setid();
-                        //((FoodActicity) mContext).setlist(when, mTvList.get(Position).getTitle(), mTvList.get(Position).getDetail());
-                        //ArrayList<FoodItem> list = new ArrayList<>();
-                        //list = ((FoodActicity)mContext).getlist();
-                        Intent intent = new Intent(mContext, SingleActivity.class);
-//                        intent.putExtra(mContext.getString(R.string.row_id), mTvList.get(Position).getUid());
-//                        intent.putExtra("food_name", mTvList.get(Position).getTitle());
-//                        intent.putExtra("food_kcal", mTvList.get(Position).getDetail());
-//                        intent.putExtra("list",list);
-//                        intent.putExtra("when", when);
-//                        intent.putExtra("id", id_fromSearch);
-                        mContext.startActivity(intent);
+                        Log.d(TAG, "onClick: " + mTvList.get(Position));
+                        String Genre = mTvList.get(Position);
+                        //여기에 해당 장르 조건을 걸어 인텐트로 화면을 넘기면 될 것으로 보임
+                        Intent intent2 = new Intent(mContext, MovieActivity.class);
+                        intent2.putExtra("profileId",mProfileId);
+                        mContext.startActivity(intent2);
+                        ((GenreActivity) mContext).finish();
 
                 }
             });

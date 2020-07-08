@@ -64,9 +64,9 @@
             android:id="@+id/reg_mid_check_mark"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/check_mark"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="40dp"/>
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/netflix_check" />
 
     </RelativeLayout>
 

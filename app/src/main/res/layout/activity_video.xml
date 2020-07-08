@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".src.main.single.VideoActivity">
 
+    <com.google.android.exoplayer2.ui.DefaultTimeBar
+        android:id="@id/exo_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:show_timeout="10000"
+        android:layout_above="@id/controllerlayout"
+        app:played_color="@color/buttonColor"
+        android:background="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/controllerlayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="#000000"
+        android:layout_height="70dp">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/exo_rew"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:selectableItemBackground"
+            android:text="앞으로"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/exo_play"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:selectableItemBackground"
+            android:text="재생"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/exo_pause"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:selectableItemBackground"
+            android:text="정지"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/exo_ffwd"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="?android:selectableItemBackground"
+            android:text="뒤로"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/video_pv"
+        app:played_color="@color/buttonColor"
+        android:background="@color/black"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.more.MoreActivity">
+    tools:context=".src.main.MoreActivity">
 
     <ScrollView
         android:layout_marginTop="50dp"
@@ -66,7 +66,7 @@
                         android:layout_row="0"
                         android:layout_column="0"
                         android:layout_margin="20dp"
-                        android:src="@drawable/ic_add" />
+                        app:srcCompat="@drawable/ic_add" />
 
                     <TextView
                         android:id="@+id/profile_tv_profile2"
@@ -90,7 +90,7 @@
                         android:layout_row="0"
                         android:layout_column="0"
                         android:layout_margin="20dp"
-                        android:src="@drawable/ic_add" />
+                        app:srcCompat="@drawable/ic_add" />
 
                     <TextView
                         android:id="@+id/profile_tv_profile3"
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/ic_write" />
+                    app:srcCompat="@drawable/ic_write" />
 
                 <TextView
                     android:id="@+id/else_tv_write"
@@ -143,7 +143,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_margin="10dp"
-                        android:src="@drawable/ic_present" />
+                        app:srcCompat="@drawable/ic_present" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -304,6 +304,7 @@
             <!--내가찜한 콘텐츠-->
 
             <LinearLayout
+                android:id="@+id/more_ll_zzim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -316,7 +317,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:src="@drawable/check_only" />
+                    android:src="@drawable/ic_white_check" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -361,25 +362,27 @@
                     android:textColor="@color/gray" />
 
                 <TextView
+                    android:id="@+id/more_tv_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="17dp"
+                    android:paddingBottom="50dp"
                     android:text="로그아웃"
                     android:textColor="@color/gray" />
 
             </LinearLayout>
 
-
         </LinearLayout>
     </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:itemIconTint="@drawable/nav_item_color_state"
-        app:itemTextColor="@drawable/nav_item_color_state"
+        app:itemIconTint="@color/bottom_navigation_selector"
+        app:itemTextColor="@color/bottom_navigation_selector"
         android:background="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

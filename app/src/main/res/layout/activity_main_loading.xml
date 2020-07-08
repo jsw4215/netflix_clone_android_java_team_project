@@ -12,7 +12,7 @@
         android:layout_above="@+id/nav_view"
         android:id="@+id/loading_image"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

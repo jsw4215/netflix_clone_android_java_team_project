@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.daniel.app.netfilx_clone.R;
 
-
 public class ThirdFragment  extends Fragment {
     // Store instance variables
     private String title;

@@ -2,6 +2,7 @@ package com.daniel.app.netfilx_clone.src.profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -102,6 +103,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     startActivity(intent);
                 }else if(mIvProfile1.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
+                    editor.putString("profileId", String.valueOf(mResult.get(0).getProfileId()));
+                    editor.apply();
+
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(0).getProfileId());
                     startActivity(intent);
@@ -121,6 +127,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     startActivity(intent);
                 }else if(mIvProfile2.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
+                    editor.putString("profileId", String.valueOf(mResult.get(1).getProfileId()));
+                    editor.apply();
+
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(1).getProfileId());
                     startActivity(intent);
@@ -139,6 +150,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     startActivity(intent);
                 }else if(mIvProfile3.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
+                    editor.putString("profileId", String.valueOf(mResult.get(2).getProfileId()));
+                    editor.apply();
+
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(2).getProfileId());
                     startActivity(intent);
@@ -157,6 +173,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     startActivity(intent);
                 }else if(mIvProfile4.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
+
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
+                    editor.putString("profileId", String.valueOf(mResult.get(3).getProfileId()));
+                    editor.apply();
+
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(3).getProfileId());
                     startActivity(intent);

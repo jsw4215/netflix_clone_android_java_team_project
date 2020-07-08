@@ -66,7 +66,6 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, AdvertisementActivity.class);
-
                 startActivity(intent);
             }
         });
@@ -116,25 +115,12 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
 
     }
 
+
+
     private void tryLogin(String email, String pw) {
         showProgressDialog();
 
         Log.d(TAG, "tryLogin: started.");
-
-
-        final SignInService signInService = new SignInService(this);
-        signInService.postSignInInfo(email, pw);
-
-    }
-
-    private void tryGetTest() {
-        showProgressDialog();
-
-        Log.d(TAG, "tryGetTest: started.");
-
-        String email = "dlwltjd7778@naver.com";
-        String pw = "1111";
-
 
 
         final SignInService signInService = new SignInService(this);
@@ -167,16 +153,6 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
     public void validateFailure(@Nullable String message) {
         hideProgressDialog();
         Log.d(TAG, "validateFailure: failure");
-    }
-
-    public void customOnClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_btn_hello_world:
-                tryGetTest();
-                break;
-            default:
-                break;
-        }
     }
 
     private void makeDialog(int code) {

@@ -1,10 +1,18 @@
 package com.daniel.app.netfilx_clone.src.main;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Movie;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,17 +27,25 @@ import com.daniel.app.netfilx_clone.src.main.models.RecommendResult;
 import com.daniel.app.netfilx_clone.src.main.models.Top10Response;
 import com.daniel.app.netfilx_clone.src.main.models.Top10Result;
 import com.daniel.app.netfilx_clone.src.main.single.SingleActivity;
+import com.daniel.app.netfilx_clone.src.main.single.VideoActivity;
+import com.daniel.app.netfilx_clone.src.main.toptools.GenreActivity;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResponse;
 import com.daniel.app.netfilx_clone.src.main.toptools.models.ZzimResult;
+import com.daniel.app.netfilx_clone.src.main.utils.BottomNavigationViewHelper;
+import com.daniel.app.netfilx_clone.src.main.utils.MainLoadingActivity;
 import com.daniel.app.netfilx_clone.src.main.utils.NetflixOriginRecyViewAdapter;
 import com.daniel.app.netfilx_clone.src.main.utils.RecommRecyViewAdapter;
 import com.daniel.app.netfilx_clone.src.main.utils.ZzimRecyViewAdapter;
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
+
 public class MovieActivity extends BaseActivity implements MainActivityView {
     private static final String TAG = "MovieActivity";
+    private static final int ACTIVITY_NUM = 0;
 
     int mProfileId;
 
@@ -42,6 +58,9 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
     ZzimRecyViewAdapter mZzimRecyViewAdapter;
     RecommRecyViewAdapter mRecommRecyViewAdapter;
     NetflixOriginRecyViewAdapter mNetflixOriginRecyViewAdapter;
+    TextView mGenre;
+    Button mPlay;
+    ImageView mTopLogo;
     ImageView mTop1;
     ImageView mTop2;
     ImageView mTop3;
@@ -52,6 +71,8 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
     ImageView mTop8;
     ImageView mTop9;
     ImageView mTop10;
+    BottomNavigationView mBottomNavigationView;
+    Context mContext = MovieActivity.this;
 
 
 
@@ -61,25 +82,82 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        Intent intent = getIntent();
-        mProfileId = intent.getIntExtra("profileId",-1);
+        mBottomNavigationView = findViewById(R.id.nav_view);
+        mGenre = findViewById(R.id.main_tv_top_genre2);
+        mTopLogo = findViewById(R.id.main_tool_top_icon);
+        mPlay = findViewById(R.id.movie_btn_play);
+
+        mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
         mPoster = new Poster(getApplicationContext());
         //final View ZzimList = findViewById(R.id.movie_inc_zzim_list);
         //EditText editText = (EditText)emailView.findViewById(R.id.contactEmailEdit);
 
-
-
         //mZzimList.clear();
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decor = getWindow().getDecorView();
+            decor.setSystemUiVisibility(0);
+        }
+
+        Log.d(TAG, "Movie onCreate: " + mProfileId);
         tryGetZzim(mProfileId);
         tryGetTop10(mProfileId);
         tryGetRecommend(mProfileId);
         tryGetNetflixOriginal(mProfileId);
 
+        setupBottomNavigationView();
 
+        mGenre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieActivity.this, GenreActivity.class);
+                intent.putExtra("fromWhere", "MovieGenre");
+                intent.putExtra("profileId",mProfileId);
+                startActivity(intent);
+            }
+        });
 
+        mTopLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MovieActivity.this, MainLoadingActivity.class);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                intent.putExtra("calling_activity","movie_activity");
+                intent.putExtra("profileId",mProfileId);
+                startActivity(intent);
+            }
+        });
 
+        final String dummy_url = "https://firebasestorage.googleapis.com/v0/b/netflix-51e85.appspot.com/o/videos%2FInception%20%EC%98%81%ED%99%94%20%EC%98%88%EA%B3%A0%ED%8E%B8.mp4?alt=media&token=0ad61c37-8118-4aff-8f49-a0935d5065ed";
+
+        mPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MovieActivity.this, VideoActivity.class);
+                intent.putExtra("videoUri",dummy_url);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
+    private void setupBottomNavigationView(){
+        Log.d(TAG,"setupBottomnavView: setting up BottomNavigationView");
+        BottomNavigationViewHelper.setupBottomNavigationView(mBottomNavigationView);
+        BottomNavigationViewHelper.enableNavigation(mContext, this, mBottomNavigationView);
+        Menu menu = mBottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
     }
 
     private void setNetflixOriginToAdapter(List<NetflixOriginalResult> netflixOriginalResults) {

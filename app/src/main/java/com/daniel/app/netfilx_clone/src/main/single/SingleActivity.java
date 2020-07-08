@@ -48,6 +48,7 @@ import java.net.URL;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
 
 public class SingleActivity extends BaseActivity implements SingleActivityView {
 
@@ -102,15 +103,25 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
 
         Intent intent = getIntent();
         mContentsId = intent.getIntExtra("contentsId",1);
-        mProfileId = intent.getIntExtra("profileId",2);
+        mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
         tryGetSingleInfo(mProfileId, mContentsId);
-
-
 
         //like 평가 공유x
 
         mLinearLayout = findViewById(R.id.single_total_view);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View decor = getWindow().getDecorView();
+            decor.setSystemUiVisibility(0);
+        }
 
         //mLike = findViewById(R.id.single_like_icon);
 

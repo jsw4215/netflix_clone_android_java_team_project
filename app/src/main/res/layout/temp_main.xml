@@ -69,6 +69,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/main_ll_heart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -78,6 +79,7 @@
                     android:paddingEnd="10dp">
 
                     <ImageView
+                        android:id="@+id/main_iv_heart"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
@@ -93,6 +95,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/main_btn_play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -149,45 +152,168 @@
                     android:layout_marginBottom="30dp"
                     android:orientation="horizontal">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circle_poster1"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/poster"
-                        app:civ_border_color="@color/silver"
-                        app:civ_border_width="3dp" />
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circle_poster2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:src="@drawable/poster"
-                        app:civ_border_color="@color/silver"
-                        app:civ_border_width="3dp" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster1"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_frozen"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circle_poster3"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:src="@drawable/poster"
-                        app:civ_border_color="@color/silver"
-                        app:civ_border_width="3dp" />
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_frozen"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/circle_poster4"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="25dp"
-                        android:src="@drawable/poster"
-                        app:civ_border_color="@color/silver"
-                        app:civ_border_width="3dp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster2"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_blade"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_blade"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster3"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_mermaid"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_mermaid"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster4"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_veteran"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_veteran"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster5"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_kind"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_kind"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster6"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_tazza"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_tazza"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/circle_poster7"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/poster_purpose"
+                            app:civ_border_color="@color/silver"
+                            app:civ_border_width="3dp" />
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/logo_purpose"
+                            android:layout_marginTop="80dp"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"/>
+
+                    </FrameLayout>
+
+
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -217,7 +343,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list2"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -231,7 +357,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list3"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -245,7 +371,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list4"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -273,7 +399,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list3"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -287,7 +413,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list2"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -368,7 +494,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list4"
                 android:layout_marginBottom="15dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>
@@ -382,7 +508,7 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <include layout="@layout/poster_list"
+            <include layout="@layout/poster_list3"
                 android:layout_marginBottom="50dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"/>

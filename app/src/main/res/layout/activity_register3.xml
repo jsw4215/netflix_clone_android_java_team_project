@@ -149,6 +149,8 @@
                     android:id="@+id/reg_et_email_inside"
                     android:textCursorDrawable="@drawable/cursor_color"
                     android:background="@drawable/grey_border"
+                    android:maxLines="1"
+                    android:inputType="text"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
 
@@ -166,6 +168,8 @@
                 android:id="@+id/reg_et_pw_inside"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
+                android:maxLines="1"
+                android:inputType="textPassword"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -188,6 +188,7 @@
                 android:id="@+id/reg_et_pay_card_num"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
+                android:maxLines="1"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -205,6 +206,7 @@
                 android:id="@+id/reg_et_pay_mon_year"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
+                android:maxLines="1"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -222,6 +224,7 @@
                 android:id="@+id/reg_et_pay_name"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
+                android:maxLines="1"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -269,6 +272,7 @@
                 android:id="@+id/reg_et_pay_birth_year"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:background="@drawable/grey_border"
+                android:maxLines="1"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -349,6 +353,8 @@
         </LinearLayout>
 
         <CheckBox
+            android:onClick="customOnClick"
+            android:id="@+id/chk_sign_up_agreement_all"
             android:layout_marginTop="15dp"
             android:text="19세 이상임을 증명하며, 아래의 약관에 모두 동의합니다."
             android:textStyle="bold"
@@ -362,21 +368,29 @@
             android:background="@color/gray" />
 
         <CheckBox
+            android:onClick="customOnClick"
+            android:id="@+id/chk_sign_up_agreement_1"
             android:text="Netflix 이용 약관 및 개인정보 처리방침에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:onClick="customOnClick"
+            android:id="@+id/chk_sign_up_agreement_2"
             android:text="본인의 개인 정보를 제3자에 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:onClick="customOnClick"
+            android:id="@+id/chk_sign_up_agreement_3"
             android:text="본인의 개인 정보를 해외로 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <CheckBox
+            android:onClick="customOnClick"
+            android:id="@+id/chk_sign_up_agreement_4"
             android:text="본인의 개인 정보를 결제 서비스업체에 제공함에 동의합니다."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

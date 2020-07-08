@@ -36,6 +36,9 @@
         <activity android:name=".src.profile.ProfileChangeActivity" />
         <activity android:name=".TempTry" />
         <activity
+            android:name=".src.main.utils.LogoutDialogActivity"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
+        <activity
             android:name=".src.register.DialogActivity"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
         <activity
@@ -44,24 +47,26 @@
         <activity android:name=".src.search.SearchActivity">
         </activity>
         <activity android:name=".src.main.SavedContentsActivity" />
-        <activity android:name=".ui.more.MoreActivity" />
-        <activity android:name=".src.register.RegisterActivity5" />
+        <activity android:name=".src.main.MoreActivity" />
+        <activity android:name=".src.register.RegisterActivity5" >
+        </activity>
         <activity android:name=".src.register.RegisterActivity4" />
         <activity android:name=".src.register.RegisterActivity3" />
         <activity android:name=".src.register.RegisterActivity2" />
         <activity android:name=".src.register.MembershipActivity" />
         <activity android:name=".src.register.RegisterActivity" />
         <activity android:name=".src.advertisement.AdvertisementActivity" />
-        <activity android:name=".src.main.MainActivity" />
-        <activity android:name=".src.signin.SignInActivity">
+        <activity android:name=".src.main.MainActivity" >
         </activity>
-        <activity android:name=".src.splash.SplashActivity" />
-        <activity android:name=".src.profile.ProfileActivity">
+        <activity android:name=".src.signin.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".src.splash.SplashActivity" />
+        <activity android:name=".src.profile.ProfileActivity">
         </activity>
     </application>
 

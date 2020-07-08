@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 import com.daniel.app.netfilx_clone.R;
@@ -47,4 +49,11 @@ public class VideoActivity extends AppCompatActivity {
         player.prepare(videoSource);
 
     }
+    
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
 }
