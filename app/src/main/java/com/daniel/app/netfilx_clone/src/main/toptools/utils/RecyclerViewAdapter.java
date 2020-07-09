@@ -2,6 +2,9 @@ package com.daniel.app.netfilx_clone.src.main.toptools.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +44,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         // ListView의 getView 부분을 담당하는 메소드
-        ((ViewHolder) holder).onBind(mTvList.get(position));
+            if(position==2){
+                ((ViewHolder) holder).onBindBold(mTvList.get(position));
+            }else {
+                ((ViewHolder) holder).onBind(mTvList.get(position));
+            }
     }
 
     @Override
@@ -71,14 +78,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         Intent intent2 = new Intent(mContext, MovieActivity.class);
                         intent2.putExtra("profileId",mProfileId);
                         mContext.startActivity(intent2);
+                        ((GenreActivity)mContext).overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         ((GenreActivity) mContext).finish();
 
                 }
             });
         }
 
+        public void onBindBold(String item) {
+            Log.d(TAG, "onBindBold: ");
+            //mTitle.setText(Html.fromHtml(item));
+            mTitle.setTypeface(null, Typeface.BOLD);
+            mTitle.setTextColor(Color.WHITE);
+
+        }
+
         public void onBind(String item) {
+
             mTitle.setText(item);
+
         }
     }
 

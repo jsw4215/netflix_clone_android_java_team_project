@@ -49,10 +49,10 @@ public class VideoActivity extends AppCompatActivity {
         player.prepare(videoSource);
 
     }
-    
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
         finish();
     }
 

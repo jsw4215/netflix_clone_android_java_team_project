@@ -2,7 +2,7 @@
 <resources>
 <color name="colorPrimary">#ACACAC</color>
 <color name="colorPrimaryDark">#00574B</color>
-<color name="colorAccent">#D81B60</color>
+<color name="colorAccent">#ACACAC</color>
     <color name="green">#2DDF60</color>
 <color name="loginColor">#A8A6A6</color>
 <color name="buttonColor">#EC1818</color>

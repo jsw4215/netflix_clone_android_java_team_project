@@ -3,99 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/more_constraint"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:orientation="vertical"
     tools:context=".src.main.MoreActivity">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    <RelativeLayout
-        android:id="@+id/search_rel_layout1"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:background="@color/dark_gray">
-
-        <ImageView
-            android:layout_margin="10dp"
-            android:layout_alignParentStart="true"
-            android:id="@+id/search_iv_icon"
-            app:srcCompat="@drawable/ic_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <EditText
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/search_iv_icon"
-        android:id="@+id/search_et_search_word"
-        android:textColor="@color/light_gray"
-        android:textColorHint="@color/loginColor"
-        android:background="@color/dark_gray"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="프로그램, 영화, 장르 등을 검색" />
-
-        <ImageView
-            android:layout_marginRight="20dp"
-            android:layout_centerVertical="true"
-            android:id="@+id/search_iv_mic"
-            app:srcCompat="@drawable/ic_micro_phone"
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </RelativeLayout>
-
-    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/search_rel_layout1"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
         tools:ignore="MissingConstraints">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/search_rel_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/search_iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_search" />
+
+            <EditText
+                android:id="@+id/search_et_search_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/search_iv_icon"
+                android:background="@color/dark_gray"
+                android:hint="프로그램, 영화, 장르 등을 검색"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/light_gray"
+                android:textColorHint="@color/loginColor" />
+
+            <ImageView
+                android:id="@+id/search_iv_mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_micro_phone" />
+
+        </RelativeLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintTop_toBottomOf="@id/search_rel_layout1"
             tools:ignore="MissingConstraints">
 
-        <TextView
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:textColor="@color/light_gray"
-            android:text="인기 검색어"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/search_rv_contents"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/search_top_title_searched"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="TV 프로그램 &amp; 영화"
+                        android:textColor="@color/light_gray"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/search_top_title_popular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:text="인기 검색어"
+                        android:textColor="@color/light_gray"
+                        android:textSize="20sp" />
+
+                </FrameLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_rv_contents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
 
-
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
+        android:background="@color/black"
         app:itemIconTint="@color/bottom_navigation_selector"
         app:itemTextColor="@color/bottom_navigation_selector"
-        android:background="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
         mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
-        int[] topToolId ={R.id.main_tv_top_program, R.id.main_tv_top_movie, R.id.main_tv_top_zzim};
+        int[] topToolId = {R.id.main_tv_top_program, R.id.main_tv_top_movie, R.id.main_tv_top_zzim};
         View[] views = {mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_program),
                 mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_zzim),
                 mViewFlipper.getChildAt(0).findViewById(R.id.main_tv_top_movie),
@@ -85,13 +85,13 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_program),
                 mViewFlipper.getChildAt(2).findViewById(R.id.main_tv_top_zzim)};
 
-        //
+        //투명화면
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         setupBottomNavigationView();
 
@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         mViewFlipper.setDisplayedChild(2);
                         //setupProgramTopToolBar();
                     }
-                },100);
+                }, 100);
 
             }
         });
@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                         mViewFlipper.setDisplayedChild(0);
                         //setupProgramTopToolBar();
                     }
-                },100);
+                }, 100);
 
             }
         });
@@ -138,9 +138,11 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
                 Intent intent = new Intent(MainActivity.this, GenreActivity.class);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                intent.putExtra("fromWhere","TVProgramGenre");
-                intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("fromWhere", "TVProgramGenre");
+                intent.putExtra("profileId", mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
         });
@@ -161,14 +163,16 @@ public class MainActivity extends BaseActivity implements MainActivityView {
 
                         Intent intent = new Intent(MainActivity.this, MainLoadingActivity.class);
                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        intent.putExtra("calling_activity","main_activity");
-                        intent.putExtra("profileId",mProfileId);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        intent.putExtra("calling_activity", "main_activity");
+                        intent.putExtra("profileId", mProfileId);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                         //setupMovieTopToolBar();
                         //클릭리스너 달기
                     }
-               },300);
+                }, 300);
 
             }
         });
@@ -186,15 +190,15 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                     public void run() {
 
                         Intent intent = new Intent(MainActivity.this, ZzimActivity.class);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        intent.putExtra("calling_activity","main_activity");
-                        intent.putExtra("profileId",mProfileId);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        intent.putExtra("calling_activity", "main_activity");
+                        intent.putExtra("profileId", mProfileId);
                         startActivity(intent);
-
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         //setupMovieTopToolBar();
                         //클릭리스너 달기
                     }
-                },500);
+                }, 500);
 
             }
         });
@@ -204,10 +208,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mLlHeart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mLlHeart.getTag().equals(mTag_Check)){
+                if (mLlHeart.getTag().equals(mTag_Check)) {
                     mIvHeart.setImageResource(R.drawable.ic_add_white);
                     mLlHeart.setTag(mTag_Plus);
-                }else{
+                } else {
                     mIvHeart.setImageResource(R.drawable.ic_white_check);
                     mLlHeart.setTag(mTag_Check);
                 }
@@ -222,16 +226,17 @@ public class MainActivity extends BaseActivity implements MainActivityView {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, VideoActivity.class);
-                intent.putExtra("videoUri",dummy_url);
+                intent.putExtra("videoUri", dummy_url);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
-
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
     }
 
-    private void setupBottomNavigationView(){
-        Log.d(TAG,"setupBottomnavView: setting up BottomNavigationView");
+    private void setupBottomNavigationView() {
+        Log.d(TAG, "setupBottomnavView: setting up BottomNavigationView");
         BottomNavigationViewHelper.setupBottomNavigationView(mBottomNavigationView);
         BottomNavigationViewHelper.enableNavigation(mContext, this, mBottomNavigationView);
         Menu menu = mBottomNavigationView.getMenu();
@@ -240,9 +245,9 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     }
 
 
-    private void setupMovieTopToolBar(){
+    private void setupMovieTopToolBar() {
 
-        if(mViewFlipper.getChildAt(2)!=null) {
+        if (mViewFlipper.getChildAt(2) != null) {
 
             Log.d(TAG, "setupMovieTopToolBar: movie clicklistener setted.");
 
@@ -250,8 +255,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, GenreActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     intent.putExtra("fromWhere", "Movie");
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }
             });
 
@@ -259,8 +266,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(MainActivity.this, GenreActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     intent.putExtra("fromWhere", "MovieGenre");
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }
             });
 
@@ -304,7 +313,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         finish();
         super.onBackPressed();
     }
-
 
 
 }

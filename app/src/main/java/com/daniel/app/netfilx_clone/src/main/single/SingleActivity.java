@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -32,12 +33,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
+import com.daniel.app.netfilx_clone.src.main.MainActivity;
+import com.daniel.app.netfilx_clone.src.main.MovieActivity;
 import com.daniel.app.netfilx_clone.src.main.single.interfaces.SingleActivityView;
 import com.daniel.app.netfilx_clone.src.main.single.models.EvaluateResponse;
 import com.daniel.app.netfilx_clone.src.main.single.models.HeartResponse;
 import com.daniel.app.netfilx_clone.src.main.single.models.HeartResult;
 import com.daniel.app.netfilx_clone.src.main.single.models.SingleResponse;
 import com.daniel.app.netfilx_clone.src.main.single.utils.BlurTransformation;
+import com.daniel.app.netfilx_clone.src.main.utils.MainLoadingActivity;
 import com.daniel.app.netfilx_clone.src.profile.utils.DownloadImageTask;
 
 import java.io.IOException;
@@ -102,7 +106,7 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         Log.d(TAG, "onCreate: started.");
 
         Intent intent = getIntent();
-        mContentsId = intent.getIntExtra("contentsId",1);
+        mContentsId = intent.getIntExtra("contentsId", 1);
         mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
         tryGetSingleInfo(mProfileId, mContentsId);
@@ -115,8 +119,8 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decor = getWindow().getDecorView();
@@ -157,29 +161,9 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         mBackgound = findViewById(R.id.single_dim_background);
         mSaved = findViewById(R.id.single_saved);
 
-        //백그라운드 블러
-        //url 이미지를 bitmap으로 가져온다.
-
-        RequestOptions options = new RequestOptions();
-
-        options.override(MATCH_PARENT, MATCH_PARENT);
-
-        options.centerCrop();
-
-        options.transform(new BlurTransformation(this, 100));
-
-        Glide.with(this).setDefaultRequestOptions(options).asBitmap()
-                .load(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl()).into(mBackgound);
-
-        //Bitmap bitmap = fromUrltoBitmap(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl());
-
-        //fastBlur 함수 사용
-        //bitmap = Fastblur(bitmap, 1.7, 25);
-
         //mBackgound.setImageBitmap(bitmap);
-
+        Log.d(TAG, "layoutInit: " + mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl());
         new DownloadImageTask(mPoster).execute(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl());
-        //mPercent.setText(mSingleResponse.getContentsResult().getContentsInfo().getGenres());
         String year = String.valueOf(mSingleResponse.getContentsResult().getContentsInfo().getYear());
         mYear.setText(year);
         mAge.setText(mSingleResponse.getContentsResult().getContentsInfo().getAge());
@@ -195,6 +179,8 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
 
         Log.d(TAG, "layoutInit: similarPoster" + mSingleResponse.getSimilarContents().get(0).getThumbnailImgUrl());
         //similar contents 띄우기
+
+
         new DownloadImageTask(mSimilarPoster1).execute(mSingleResponse.getSimilarContents().get(0).getThumbnailImgUrl());
         new DownloadImageTask(mSimilarPoster2).execute(mSingleResponse.getSimilarContents().get(1).getThumbnailImgUrl());
         new DownloadImageTask(mSimilarPoster3).execute(mSingleResponse.getSimilarContents().get(2).getThumbnailImgUrl());
@@ -202,23 +188,42 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         new DownloadImageTask(mSimilarPoster5).execute(mSingleResponse.getSimilarContents().get(4).getThumbnailImgUrl());
         new DownloadImageTask(mSimilarPoster6).execute(mSingleResponse.getSimilarContents().get(5).getThumbnailImgUrl());
 
+
+        RequestOptions options = new RequestOptions();
+
+        //백그라운드 블러
+        //url 이미지를 bitmap으로 가져온다.
+        options.override(MATCH_PARENT, MATCH_PARENT);
+        options.fitCenter();
+        options.centerCrop();
+        options.transform(new BlurTransformation(this, 100));
+
+        Glide.with(this).setDefaultRequestOptions(options).asBitmap()
+                .load(mSingleResponse.getContentsResult().getContentsInfo().getThumbnailImgUrl()).into(mBackgound);
+
         //상단 상태바 투명, 흰 아이콘
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             View decor = getWindow().getDecorView();
             decor.setSystemUiVisibility(0);
         }
 
-        if(mSingleResponse.getContentsResult().getEvaluationStatus().equals("N")){
-        mIvZzim.setImageResource(R.drawable.ic_add_white);
-        }else if(mSingleResponse.getContentsResult().getEvaluationStatus().equals("Y")){
+        if (mSingleResponse.getContentsResult().getEvaluationStatus().equals("N")) {
+            mIvZzim.setImageResource(R.drawable.ic_add_white);
+        } else if (mSingleResponse.getContentsResult().getEvaluationStatus().equals("Y")) {
             mIvZzim.setImageResource(R.drawable.ic_white_check);
+        }
+
+        if(mSingleResponse.getContentsResult().getHeartStatus().equals("Y")){
+        mIvZzim.setImageResource(R.drawable.ic_white_check);
+        }else if(mSingleResponse.getContentsResult().getHeartStatus().equals("N")){
+            mIvZzim.setImageResource(R.drawable.ic_add_white);
         }
 
         //Zzim 클릭리스너
@@ -237,13 +242,13 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
             @Override
             public void onClick(View v) {
 
-                if(mLikeStatus==null){
+                if (mLikeStatus == null) {
                     if (p != null) showPopup(SingleActivity.this, p);
-                }else if(mLikeStatus.equals("G")){
+                } else if (mLikeStatus.equals("G")) {
                     tryPostEvaluate("N");
-                }else if(mLikeStatus.equals("B")){
+                } else if (mLikeStatus.equals("B")) {
                     tryPostEvaluate("N");
-                }else if(mLikeStatus.equals("N")){
+                } else if (mLikeStatus.equals("N")) {
                     if (p != null) showPopup(SingleActivity.this, p);
                 }
 
@@ -253,42 +258,42 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         mSimilarPoster1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(0).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(0).getContentsId());
             }
         });
 
         mSimilarPoster2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(1).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(1).getContentsId());
             }
         });
 
         mSimilarPoster3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(2).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(2).getContentsId());
             }
         });
 
         mSimilarPoster4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(3).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(3).getContentsId());
             }
         });
 
         mSimilarPoster5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(4).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(4).getContentsId());
             }
         });
 
         mSimilarPoster6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tryGetSingleInfo(mProfileId,mSingleResponse.getSimilarContents().get(5).getContentsId());
+                tryGetSingleInfo(mProfileId, mSingleResponse.getSimilarContents().get(5).getContentsId());
             }
         });
 
@@ -299,44 +304,30 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
             public void onClick(View v) {
 
                 Intent intent = new Intent(SingleActivity.this, VideoActivity.class);
-                intent.putExtra("videoUri",mSingleResponse.getContentsResult().getContentsInfo().getVideoUrl());
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                intent.putExtra("videoUri", mSingleResponse.getContentsResult().getContentsInfo().getVideoUrl());
                 startActivity(intent);
 
+            }
+        });
+
+        mBackArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SingleActivity.this, MovieActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
 
     }
 
-    private Bitmap fromUrltoBitmap(String imgUrl){
-
-        Bitmap myBitmap = null;
-
-        URL myImageURL = null;
-        try {
-            myImageURL = new URL(imgUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            HttpURLConnection connection = (HttpURLConnection)myImageURL .openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            myBitmap = BitmapFactory.decodeStream(input);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return myBitmap;
-    }
-
-    private void setHeartIcon(String heartStatus){
+    private void setHeartIcon(String heartStatus) {
         Log.d(TAG, "setHeartIcon: " + heartStatus);
-        if(heartStatus.equals("activated")){
+        if (heartStatus.equals("activated")) {
             mIvZzim.setImageResource(R.drawable.ic_white_check);
-        }else if(heartStatus.equals("deleted")){
+        } else if (heartStatus.equals("deleted")) {
             mIvZzim.setImageResource(R.drawable.ic_add_white);
         }
 
@@ -345,13 +336,13 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
 
     private void setLikeIcon(String choice) {
 
-        if(choice==null){
-        mLikeIcon.setImageResource(R.drawable.like_only);
-        mLikeWord.setText("평가");}
-        else if(choice.equals("G")){
+        if (choice == null) {
+            mLikeIcon.setImageResource(R.drawable.like_only);
+            mLikeWord.setText("평가");
+        } else if (choice.equals("G")) {
             mLikeIcon.setImageResource(R.drawable.liked);
             mLikeWord.setText("평가됨");
-        }else if(choice.equals("B")){
+        } else if (choice.equals("B")) {
             mLikeIcon.setImageResource(R.drawable.hated_);
             mLikeWord.setText("평가됨");
         }
@@ -376,11 +367,11 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
 
     }
 
-    private void tryGetSingleInfo(int profileId,int contentsId) {
+    private void tryGetSingleInfo(int profileId, int contentsId) {
         showProgressDialog();
 
         final SingleService singleService = new SingleService(this);
-        singleService.getSingleInfo(profileId,contentsId);
+        singleService.getSingleInfo(profileId, contentsId);
     }
 
     @Override
@@ -455,7 +446,6 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
         popup.setFocusable(true);
 
 
-
         // Getting a reference to Close button, and close the popup when clicked.
         ImageView close = layout.findViewById(R.id.like_x_mark);
         close.setOnClickListener(new View.OnClickListener() {
@@ -514,7 +504,7 @@ public class SingleActivity extends BaseActivity implements SingleActivityView {
     public void heartSuccess(HeartResponse heartResponse) {
         hideProgressDialog();
 
-        Log.d(TAG, "heartSuccess: " + heartResponse.getHeartResult().getHeartStatus() +heartResponse.getMessage());
+        Log.d(TAG, "heartSuccess: " + heartResponse.getHeartResult().getHeartStatus() + heartResponse.getMessage());
 
         this.mHeartResponse = heartResponse;
 

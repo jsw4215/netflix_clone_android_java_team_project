@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.main.MainActivity;
@@ -50,6 +51,8 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
     String mImgUrl;
     Context mContext = ProfileActivity.this;
 
+    TextView mId1, mId2, mId3, mId4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
         mIvEditProfile2 = findViewById(R.id.profile_iv_edit_profile2);
         mIvEditProfile3 = findViewById(R.id.profile_iv_edit_profile3);
         mIvEditProfile4 = findViewById(R.id.profile_iv_edit_profile4);
+
+        mId1 = findViewById(R.id.profile_id1);
+        mId2 = findViewById(R.id.profile_id2);
+        mId3 = findViewById(R.id.profile_id3);
+        mId4 = findViewById(R.id.profile_id4);
 
         mTvProfileComplete.setVisibility(View.GONE);
         mIvEditProfile1.setVisibility(View.GONE);
@@ -99,18 +107,19 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
             public void onClick(View v) {
                 if(mIvProfile1.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
-                    intent.putExtra("profileId",mResult.get(0).getProfileId());
+                    //intent.putExtra("profileId",mResult.get(0).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }else if(mIvProfile1.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
 
                     SharedPreferences.Editor editor = sSharedPreferences.edit();
                     editor.putString("profileId", String.valueOf(mResult.get(0).getProfileId()));
                     editor.apply();
-
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(0).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
             }
@@ -123,11 +132,11 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                 if(mIvProfile2.getTag().equals("available")){
                     Log.d(TAG, "onClick: [if avilable] inside " + mResult.size());
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
-                    intent.putExtra("profileId",mResult.get(1).getProfileId());
+                    //intent.putExtra("profileId",mResult.get(1).getProfileId());
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     startActivity(intent);
                 }else if(mIvProfile2.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
-
                     SharedPreferences.Editor editor = sSharedPreferences.edit();
                     editor.putString("profileId", String.valueOf(mResult.get(1).getProfileId()));
                     editor.apply();
@@ -135,6 +144,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(1).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
 
@@ -146,11 +156,10 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
             public void onClick(View v) {
                 if(mIvProfile3.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
-                    intent.putExtra("profileId",mResult.get(2).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }else if(mIvProfile3.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
-
                     SharedPreferences.Editor editor = sSharedPreferences.edit();
                     editor.putString("profileId", String.valueOf(mResult.get(2).getProfileId()));
                     editor.apply();
@@ -158,6 +167,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(2).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
 
@@ -169,11 +179,10 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
             public void onClick(View v) {
                 if(mIvProfile4.getTag().equals("available")){
                     Intent intent = new Intent(ProfileActivity.this, ProfileAddActivity.class);
-                    intent.putExtra("profileId",mResult.get(3).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }else if(mIvProfile4.getTag().equals("exist")){
                     Intent intent = new Intent(ProfileActivity.this, MainLoadingActivity.class);
-
                     SharedPreferences.Editor editor = sSharedPreferences.edit();
                     editor.putString("profileId", String.valueOf(mResult.get(3).getProfileId()));
                     editor.apply();
@@ -181,6 +190,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                     intent.putExtra("calling_activity","profile_activity");
                     intent.putExtra("profileId",mResult.get(3).getProfileId());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 }
             }
@@ -209,6 +219,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                         intent.putExtra("imgUrl",mResult.get(0).getProfileImgUrl());
                         intent.putExtra("profileId",mResult.get(0).getProfileId());
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 });
 
@@ -220,6 +231,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                         Log.d(TAG, "onClick: 프로파일 " + mResult.get(1).getProfileId());
                         intent.putExtra("profileId",mResult.get(1).getProfileId());
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 });
 
@@ -230,6 +242,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                         intent.putExtra("imgUrl",mResult.get(2).getProfileImgUrl());
                         intent.putExtra("profileId",mResult.get(2).getProfileId());
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 });
 
@@ -240,6 +253,7 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                         intent.putExtra("imgUrl",mResult.get(3).getProfileImgUrl());
                         intent.putExtra("profileId",mResult.get(3).getProfileId());
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     }
                 });
 
@@ -301,50 +315,58 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
         //for문 구현하는 법을 고려했으나 layout 접근 방법이 모호함
         //프로필 4개일경우
         if(addAvailable==0) {
-            new DownloadImageTask(mIvProfile1).execute(result.get(0).getProfileImgUrl());
-            Log.d(TAG, "setProfiles: 0");
+            Glide.with(mContext).load(result.get(0).getProfileImgUrl()).into(mIvProfile1);
+            mId1.setText(String.valueOf(result.get(0).getProfileId()));
             mIvProfile1.setTag(mTag_exist);
-            new DownloadImageTask(mIvProfile2).execute(result.get(1).getProfileImgUrl());
-            Log.d(TAG, "setProfiles: 1");
+            Glide.with(mContext).load(result.get(1).getProfileImgUrl()).into(mIvProfile2);
+            mId2.setText(String.valueOf(result.get(1).getProfileId()));
             mIvProfile2.setTag(mTag_exist);
-            new DownloadImageTask(mIvProfile3).execute(result.get(2).getProfileImgUrl());
-            Log.d(TAG, "setProfiles: 2");
+            Glide.with(mContext).load(result.get(2).getProfileImgUrl()).into(mIvProfile3);
+            mId3.setText(String.valueOf(result.get(2).getProfileId()));
             mIvProfile3.setTag(mTag_exist);
-            new DownloadImageTask(mIvProfile4).execute(result.get(3).getProfileImgUrl());
-            Log.d(TAG, "setProfiles: 3");
+            Glide.with(mContext).load(result.get(3).getProfileImgUrl()).into(mIvProfile4);
+            mId4.setText(String.valueOf(result.get(3).getProfileId()));
             mIvProfile4.setTag(mTag_exist);
         }
         //프로필 추가가능일 경우
         else{
             if(num==3){
-                new DownloadImageTask(mIvProfile1).execute(result.get(0).getProfileImgUrl());
-                new DownloadImageTask(mIvProfile2).execute(result.get(1).getProfileImgUrl());
-                new DownloadImageTask(mIvProfile3).execute(result.get(2).getProfileImgUrl());
+                Glide.with(mContext).load(result.get(0).getProfileImgUrl()).into(mIvProfile1);
+                mId1.setText(String.valueOf(result.get(0).getProfileId()));
+                Glide.with(mContext).load(result.get(1).getProfileImgUrl()).into(mIvProfile2);
+                mId2.setText(String.valueOf(result.get(1).getProfileId()));
+                Glide.with(mContext).load(result.get(2).getProfileImgUrl()).into(mIvProfile3);
+                mId3.setText(String.valueOf(result.get(2).getProfileId()));
                 mIvProfile4.setImageDrawable(plusProfile);
-
+                mId4.setText("");
                 mIvProfile1.setTag(mTag_exist);
                 mIvProfile2.setTag(mTag_exist);
                 mIvProfile3.setTag(mTag_exist);
                 mIvProfile4.setTag(mTag_available);
 
             }else if(num==2){
-                new DownloadImageTask(mIvProfile1).execute(result.get(0).getProfileImgUrl());
-                new DownloadImageTask(mIvProfile2).execute(result.get(1).getProfileImgUrl());
+                Glide.with(mContext).load(result.get(0).getProfileImgUrl()).into(mIvProfile1);
+                mId1.setText(String.valueOf(result.get(0).getProfileId()));
+                Glide.with(mContext).load(result.get(1).getProfileImgUrl()).into(mIvProfile2);
+                mId2.setText(String.valueOf(result.get(1).getProfileId()));
                 mIvProfile3.setImageDrawable(plusProfile);
+                mId3.setText("");
                 mIvProfile4.setImageDrawable(plusProfile);
-
+                mId4.setText("");
                 mIvProfile1.setTag(mTag_exist);
                 mIvProfile2.setTag(mTag_exist);
                 mIvProfile3.setTag(mTag_available);
                 mIvProfile4.setTag(mTag_available);
 
             }else if(num==1){
-
-                new DownloadImageTask(mIvProfile1).execute(result.get(0).getProfileImgUrl());
+                Glide.with(mContext).load(result.get(0).getProfileImgUrl()).into(mIvProfile1);
+                mId1.setText(String.valueOf(result.get(0).getProfileId()));
                 mIvProfile2.setImageDrawable(plusProfile);
+                mId2.setText("");
                 mIvProfile3.setImageDrawable(plusProfile);
+                mId3.setText("");
                 mIvProfile4.setImageDrawable(plusProfile);
-
+                mId4.setText("");
                 mIvProfile1.setTag(mTag_exist);
                 mIvProfile2.setTag(mTag_available);
                 mIvProfile3.setTag(mTag_available);
@@ -352,10 +374,13 @@ public class ProfileActivity extends BaseActivity implements ProfileActivityView
                 Log.d(TAG, "setProfiles: " + mIvProfile2.getTag());
             }else if(num==0){
                 mIvProfile1.setImageDrawable(plusProfile);
+                mId1.setText("");
                 mIvProfile2.setImageDrawable(plusProfile);
+                mId2.setText("");
                 mIvProfile3.setImageDrawable(plusProfile);
+                mId3.setText("");
                 mIvProfile4.setImageDrawable(plusProfile);
-
+                mId4.setText("");
                 mIvProfile1.setTag(mTag_available);
                 mIvProfile2.setTag(mTag_available);
                 mIvProfile3.setTag(mTag_available);

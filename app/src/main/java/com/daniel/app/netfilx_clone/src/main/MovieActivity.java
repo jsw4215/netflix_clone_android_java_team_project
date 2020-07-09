@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.main.interfaces.MainActivityView;
@@ -60,6 +62,8 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
     NetflixOriginRecyViewAdapter mNetflixOriginRecyViewAdapter;
     TextView mGenre;
     Button mPlay;
+    LinearLayout mLlHeart;
+    ImageView mIvHeart;
     ImageView mTopLogo;
     ImageView mTop1;
     ImageView mTop2;
@@ -71,8 +75,12 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
     ImageView mTop8;
     ImageView mTop9;
     ImageView mTop10;
+    ImageView mThumb;
     BottomNavigationView mBottomNavigationView;
     Context mContext = MovieActivity.this;
+
+    String mTag_Check = "check";
+    String mTag_Plus = "plus";
 
 
 
@@ -86,6 +94,9 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
         mGenre = findViewById(R.id.main_tv_top_genre2);
         mTopLogo = findViewById(R.id.main_tool_top_icon);
         mPlay = findViewById(R.id.movie_btn_play);
+        mLlHeart = findViewById(R.id.movie_ll_heart);
+        mIvHeart = findViewById(R.id.movie_iv_heart);
+        mThumb = findViewById(R.id.movie_vv_thumb);
 
         mProfileId = Integer.parseInt(sSharedPreferences.getString("profileId", String.valueOf(-1)));
 
@@ -113,6 +124,11 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
         tryGetRecommend(mProfileId);
         tryGetNetflixOriginal(mProfileId);
 
+        Glide.with(mContext)
+                .load("https://firebasestorage.googleapis.com/v0/b/netflix-51e85.appspot.com/o/videos%2FInception%20%EC%98%81%ED%99%94%20%EC%98%88%EA%B3%A0%ED%8E%B8.mp4?alt=media&token=0ad61c37-8118-4aff-8f49-a0935d5065ed")
+                .thumbnail(0.01f)
+                .into(mThumb);
+
         setupBottomNavigationView();
 
         mGenre.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +138,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 intent.putExtra("fromWhere", "MovieGenre");
                 intent.putExtra("profileId",mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -133,6 +150,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 intent.putExtra("calling_activity","movie_activity");
                 intent.putExtra("profileId",mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -145,6 +163,23 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, VideoActivity.class);
                 intent.putExtra("videoUri",dummy_url);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+            }
+        });
+
+        mLlHeart.setTag(mTag_Check);
+
+        mLlHeart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mLlHeart.getTag().equals(mTag_Check)) {
+                    mIvHeart.setImageResource(R.drawable.ic_add_white);
+                    mLlHeart.setTag(mTag_Plus);
+                } else {
+                    mIvHeart.setImageResource(R.drawable.ic_white_check);
+                    mLlHeart.setTag(mTag_Check);
+                }
 
             }
         });
@@ -228,17 +263,16 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
         mTop9 = findViewById(R.id.top10_9);
         mTop10 = findViewById(R.id.top10_10);
 
-
-        new DownloadImageTask(mTop1).execute(mTop10Result.get(0).getThumbnailImgUrl());
-        new DownloadImageTask(mTop2).execute(mTop10Result.get(1).getThumbnailImgUrl());
-        new DownloadImageTask(mTop3).execute(mTop10Result.get(2).getThumbnailImgUrl());
-        new DownloadImageTask(mTop4).execute(mTop10Result.get(3).getThumbnailImgUrl());
-        new DownloadImageTask(mTop5).execute(mTop10Result.get(4).getThumbnailImgUrl());
-        new DownloadImageTask(mTop6).execute(mTop10Result.get(5).getThumbnailImgUrl());
-        new DownloadImageTask(mTop7).execute(mTop10Result.get(6).getThumbnailImgUrl());
-        new DownloadImageTask(mTop8).execute(mTop10Result.get(7).getThumbnailImgUrl());
-        new DownloadImageTask(mTop9).execute(mTop10Result.get(8).getThumbnailImgUrl());
-        new DownloadImageTask(mTop10).execute(mTop10Result.get(9).getThumbnailImgUrl());
+        Glide.with(mContext).load(mTop10Result.get(0).getThumbnailImgUrl()).into(mTop1);
+        Glide.with(mContext).load(mTop10Result.get(1).getThumbnailImgUrl()).into(mTop2);
+        Glide.with(mContext).load(mTop10Result.get(2).getThumbnailImgUrl()).into(mTop3);
+        Glide.with(mContext).load(mTop10Result.get(3).getThumbnailImgUrl()).into(mTop4);
+        Glide.with(mContext).load(mTop10Result.get(4).getThumbnailImgUrl()).into(mTop5);
+        Glide.with(mContext).load(mTop10Result.get(5).getThumbnailImgUrl()).into(mTop6);
+        Glide.with(mContext).load(mTop10Result.get(6).getThumbnailImgUrl()).into(mTop7);
+        Glide.with(mContext).load(mTop10Result.get(7).getThumbnailImgUrl()).into(mTop8);
+        Glide.with(mContext).load(mTop10Result.get(8).getThumbnailImgUrl()).into(mTop9);
+        Glide.with(mContext).load(mTop10Result.get(9).getThumbnailImgUrl()).into(mTop10);
 
         mTop1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,6 +280,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(0).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -256,6 +291,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(1).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -266,6 +302,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(2).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -276,6 +313,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(3).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -286,6 +324,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(4).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -295,6 +334,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(5).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -305,6 +345,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(6).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -315,6 +356,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(7).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -325,6 +367,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(8).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
@@ -335,6 +378,7 @@ public class MovieActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(MovieActivity.this, SingleActivity.class);
                 intent.putExtra("contentsId",mTop10Result.get(9).getContentsId());
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });

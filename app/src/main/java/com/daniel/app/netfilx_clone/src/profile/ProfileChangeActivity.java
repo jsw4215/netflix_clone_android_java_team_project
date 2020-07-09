@@ -1,5 +1,6 @@
 package com.daniel.app.netfilx_clone.src.profile;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.daniel.app.netfilx_clone.R;
 import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
@@ -34,8 +36,10 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
     TextView mProfileChangeTvProfile;
     ProfileActivity profileActivity;
     EditText mProfileChangeET;
+    EditText mEtProfileName;
 
     LinearLayout mLinearLayout;
+    Context mContext = ProfileChangeActivity.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
         mProfileChangeTvProfile = findViewById(R.id.profile_change_tv_profile);
         mLinearLayout = findViewById(R.id.profile_change_ll_delete);
         mProfileChangeET = findViewById(R.id.profile_change_et_profile_name);
+        mEtProfileName = findViewById(R.id.profile_change_et_profile_name);
 
         //인텐트 받아오기 이미지, ID
 
@@ -56,8 +61,8 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
         mProfileId = intent.getIntExtra("profileId", -1);
         mImgId = intent.getIntExtra("imgId",-1);
 
-        new DownloadImageTask(mProfileChangeIvProfile).execute(mImgUrl);
-
+        Glide.with(mContext).load(mImgUrl).into(mProfileChangeIvProfile);
+        mEtProfileName.setText(String.valueOf(mProfileId));
         Log.d(TAG, "onCreate: profileId" + mProfileId);
 
         mLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +74,7 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
                 Intent intent = new Intent(ProfileChangeActivity.this, DeleteDialogActivity.class);
                 intent.putExtra("profileId", mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
         });
@@ -79,6 +85,7 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
                 Intent intent = new Intent(ProfileChangeActivity.this, ProfileSelectionActivity.class);
                 intent.putExtra("profileId", mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -88,13 +95,14 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
                 Intent intent = new Intent(ProfileChangeActivity.this, ProfileSelectionActivity.class);
                 intent.putExtra("profileId", mProfileId);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
         mProfileChangeCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -136,7 +144,7 @@ public class ProfileChangeActivity extends BaseActivity implements ProfileActivi
         Log.d(TAG, "profileAddSuccess: ");
         Intent intent = new Intent(ProfileChangeActivity.this, ProfileActivity.class);
         startActivity(intent);
-
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
     }
 

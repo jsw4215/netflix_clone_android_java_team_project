@@ -28,7 +28,8 @@
                     android:id="@+id/main_mid_poster"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
-                    android:src="@drawable/main_dummy"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/poster_main2"
                     tools:ignore="MissingConstraints" />
 
                     <include
@@ -42,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:gravity="center_horizontal"
-                android:text="다크 - 긴장감 넘치는 - 로맨스 - 드라마 - 사랑과 집착 사이"
+                android:text="다크 - 긴장감 넘치는 - 액션 - 히어로 - 레전드"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
 
@@ -53,6 +54,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/movie_ll_heart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -62,6 +64,7 @@
                     android:paddingEnd="10dp">
 
                     <ImageView
+                        android:id="@+id/movie_iv_heart"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
@@ -418,7 +421,8 @@
                 android:textColor="@color/light_gray"
                 android:textSize="20sp" />
 
-            <VideoView
+            <ImageView
+                android:id="@+id/movie_vv_thumb"
                 android:layout_width="match_parent"
                 android:layout_height="150dp" />
 

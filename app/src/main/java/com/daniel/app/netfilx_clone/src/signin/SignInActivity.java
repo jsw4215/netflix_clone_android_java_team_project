@@ -8,10 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,11 +64,15 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
         mAlertEmail.setVisibility(View.GONE);
         mAlertPw.setVisibility(View.GONE);
 
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
         mAlertEmailReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, AdvertisementActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -81,16 +87,17 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.netflix.com/kr/LoginHelp/"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
             }
         });
 
-                mAlertPwRetry.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mAlertPw.setVisibility(View.GONE);
-                    }
-                });
+        mAlertPwRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAlertPw.setVisibility(View.GONE);
+            }
+        });
 
         mSignInTopBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +112,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
 
                 Log.d(TAG, "onClickSignIn: started. ");
 
-                String email =mEmail.getText().toString();
+                String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
 
                 tryLogin(email, password);
@@ -114,7 +121,6 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
         });
 
     }
-
 
 
     private void tryLogin(String email, String pw) {
@@ -132,7 +138,7 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
     public void validateSuccess(boolean isSuccess, int code, String jwt) {
         hideProgressDialog();
         Log.d(TAG, "validateSuccess:Message ");
-        if(isSuccess){
+        if (isSuccess) {
             Log.d(TAG, "validateSuccess: Login Success");
 
             SharedPreferences.Editor editor = sSharedPreferences.edit();
@@ -141,9 +147,11 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
 
             //Intent intent = new Intent(SignInActivity.this, SingleActivity.class);
             Intent intent = new Intent(SignInActivity.this, ProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             finish();
-        }else{
+        } else {
             makeDialog(code);
             Log.d(TAG, "validateSuccess: Login failure");
         }
@@ -159,17 +167,16 @@ public class SignInActivity extends BaseActivity implements SignInActivityView {
 
         Log.d(TAG, "makeDialog: " + code);
 
-        if(code == 200){
+        if (code == 200) {
             mAlertEmail.setVisibility(View.VISIBLE);
 
-        }else if(code == 210){
+        } else if (code == 210) {
             mAlertPw.setVisibility(View.VISIBLE);
 
         }
 
 
     }
-
 
 
 }

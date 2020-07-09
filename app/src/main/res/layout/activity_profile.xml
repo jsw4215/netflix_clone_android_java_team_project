@@ -9,149 +9,190 @@
 
     <ImageView
         android:id="@+id/profile_iv_logo"
-        android:layout_marginTop="15dp"
         android:layout_width="120dp"
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:src="@drawable/netflix_logo_top_fix"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/profile_tv_complete"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:srcCompat="@drawable/ic_back_arrow"
-        android:layout_width="25dp"
-        android:layout_height="25dp"/>
+        app:srcCompat="@drawable/ic_back_arrow" />
 
     <ImageView
+        android:id="@+id/profile_tv_change"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
-        android:id="@+id/profile_tv_change"
-        android:layout_alignParentEnd="true"
         android:textColor="@color/white"
-        app:srcCompat="@drawable/ic_edit_white"
-        android:layout_width="25dp"
-        android:layout_height="25dp"/>
+        app:srcCompat="@drawable/ic_edit_white" />
 
     <TextView
         android:id="@+id/profile_tv_select_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_iv_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:text="Netflix를 시청할 프로필을 선택하세요."
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/profile_iv_logo"
         tools:ignore="MissingConstraints" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2"
+        android:layout_below="@+id/profile_tv_select_profile"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        tools:ignore="MissingConstraints"
-        android:layout_below="@+id/profile_tv_select_profile">
+        android:columnCount="2"
+        android:rowCount="4"
+        tools:ignore="MissingConstraints">
 
         <FrameLayout
+            android:layout_row="0"
+            android:layout_column="0"
+            android:id="@+id/profile_fl1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/profile_iv_profile1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="30dp"
-        android:layout_marginRight="0dp"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:src="@drawable/profile1"/>
+                <ImageView
+                    android:id="@+id/profile_iv_profile1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="30dp"
+                    android:src="@drawable/profile1" />
+
+                <ImageView
+                    android:id="@+id/profile_iv_edit_profile1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="30dp"
+                    android:src="@drawable/edit_profile" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/profile_id1"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="아이디1"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/profile_iv_edit_profile1"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/edit_profile"/>
+                android:id="@+id/profile_iv_profile2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/profile1" />
+
+            <ImageView
+                android:id="@+id/profile_iv_edit_profile2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/edit_profile" />
 
         </FrameLayout>
 
+        <TextView
+            android:id="@+id/profile_id2"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_gravity="center"
+            android:text="아이디2"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <FrameLayout
+            android:layout_row="2"
+            android:layout_column="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/profile_iv_profile2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="0dp"
-        android:layout_row="0"
-        android:layout_column="1"
-        android:src="@drawable/profile1"/>
-
-        <ImageView
-            android:id="@+id/profile_iv_edit_profile2"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/edit_profile"/>
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-
-    <ImageView
-        android:id="@+id/profile_iv_profile3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_row="1"
-        android:layout_column="0"
-        android:src="@drawable/profile1"/>
+            <ImageView
+                android:id="@+id/profile_iv_profile3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/profile1" />
 
             <ImageView
                 android:id="@+id/profile_iv_edit_profile3"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/edit_profile"/>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/edit_profile" />
 
         </FrameLayout>
 
+        <TextView
+            android:id="@+id/profile_id3"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:text="아이디3"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <FrameLayout
+            android:layout_row="2"
+            android:layout_column="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/profile_iv_profile4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginRight="0dp"
-        android:layout_row="1"
-        android:layout_column="1"
-        android:src="@drawable/plus_profile"/>
+            <ImageView
+                android:id="@+id/profile_iv_profile4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/plus_profile" />
 
             <ImageView
                 android:id="@+id/profile_iv_edit_profile4"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/edit_profile"/>
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="30dp"
+                android:src="@drawable/edit_profile" />
 
         </FrameLayout>
+
+        <TextView
+            android:id="@+id/profile_id4"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:text="아이디4"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </GridLayout>
 

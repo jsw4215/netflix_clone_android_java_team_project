@@ -55,6 +55,7 @@ public class MainLoadingActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainLoadingActivity.this, MainActivity.class);
                     intent.putExtra("profileId",mProfileId);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                 }else if(mFrom.equals("main_activity")){
 
@@ -62,6 +63,7 @@ public class MainLoadingActivity extends AppCompatActivity {
                     Log.d(TAG, "click: intent to movie");
                     intent.putExtra("profileId",mProfileId);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                 }
 

@@ -8,6 +8,7 @@
     tools:context=".src.register.RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:layout_marginTop="30dp"
         android:id="@+id/mem_top_toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"

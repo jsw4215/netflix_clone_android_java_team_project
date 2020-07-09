@@ -9,6 +9,10 @@ import android.widget.ProgressBar;
 
 import com.daniel.app.netfilx_clone.src.advertisement.AdvertisementActivity;
 import com.daniel.app.netfilx_clone.R;
+import com.daniel.app.netfilx_clone.src.main.MainActivity;
+
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.X_ACCESS_TOKEN;
+import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -33,9 +37,20 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity
-                        .this, AdvertisementActivity.class));
-                finish();
+
+
+                if(sSharedPreferences.getString(X_ACCESS_TOKEN,"").equals("")) {
+                    startActivity(new Intent(SplashActivity
+                            .this, AdvertisementActivity.class));
+                    finish();
+                }else{
+                    startActivity(new Intent(SplashActivity
+                            .this, MainActivity.class));
+                    finish();
+                }
+
+
+
             }
         },duration);
 

@@ -24,7 +24,7 @@ public class ProfileService {
         this.mProfileActivityView = profileActivityView;
     }
 
-    void getProfiles() {
+    public void getProfiles() {
         Log.d(TAG, "getProfiles: started"+X_ACCESS_TOKEN);
         final ProfileRetrofitInterface profileRetrofitInterface = getRetrofit().create(ProfileRetrofitInterface.class);
         profileRetrofitInterface.getProfiles(X_ACCESS_TOKEN).enqueue(new Callback<ProfileResponse>() {

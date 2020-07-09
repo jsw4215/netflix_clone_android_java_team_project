@@ -78,7 +78,9 @@ public class ZzimActivity extends BaseActivity implements MainActivityView {
             public void onClick(View v) {
                 Intent intent = new Intent(ZzimActivity.this, MainActivity.class);
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -88,7 +90,9 @@ public class ZzimActivity extends BaseActivity implements MainActivityView {
                 Intent intent = new Intent(ZzimActivity.this, GenreActivity.class);
                 intent.putExtra("fromWhere","Zzim");
                 intent.putExtra("profileId",mProfileId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

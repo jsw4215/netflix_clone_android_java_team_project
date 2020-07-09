@@ -35,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/profile_change_tv_profile"
         android:textColor="@color/white"
-        android:text="SUK WOO JANG"
+        android:text="아이디 변경"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_width="match_parent"

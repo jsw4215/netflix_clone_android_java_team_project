@@ -19,6 +19,8 @@ import com.daniel.app.netfilx_clone.src.profile.interfaces.ProfileActivityView;
 import com.daniel.app.netfilx_clone.src.profile.models.result;
 import com.daniel.app.netfilx_clone.src.signin.SignInActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import static com.daniel.app.netfilx_clone.src.ApplicationClass.sSharedPreferences;
@@ -27,17 +29,16 @@ public class LogoutDialogActivity extends Activity implements ProfileActivityVie
 
     private static final String TAG = "DeleteDialogActivity";
 
-    LinearLayout mAlertStopRegister;
     TextView mAlertCancel;
-    TextView mAlertConfirm;
+    TextView mAlertLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_profile_delete);
+        setContentView(R.layout.dialog_profile_logout);
         mAlertCancel = findViewById(R.id.profile_dialog_cancel);
-        mAlertConfirm = findViewById(R.id.profile_dialog_logout_confirm);
+        mAlertLogout = findViewById(R.id.profile_dialog_logout);
 
         Intent intent = getIntent();
         final int imgId = intent.getIntExtra("profileId",-1);
@@ -49,20 +50,19 @@ public class LogoutDialogActivity extends Activity implements ProfileActivityVie
             }
         });
 
-        mAlertConfirm.setOnClickListener(new View.OnClickListener() {
+        mAlertLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SharedPreferences.Editor editor = sSharedPreferences.edit();
                 editor.clear();
                 editor.commit();
 
-                Intent intent = new Intent(LogoutDialogActivity.this, SignInActivity.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(LogoutDialogActivity.this, SignInActivity.class);
+                startActivity(intent2);
                 finish();
-
             }
         });
+
 
     }
 

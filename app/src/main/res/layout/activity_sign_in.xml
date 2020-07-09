@@ -11,7 +11,11 @@
     android:background="@color/black"
     tools:context=".src.signin.SignInActivity">
 
-    <include layout="@layout/toolbar_signup"></include>
+    <include
+        android:layout_marginTop="30dp"
+        layout="@layout/toolbar_signup"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"></include>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

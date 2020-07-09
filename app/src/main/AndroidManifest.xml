@@ -28,7 +28,8 @@
         </activity>
         <activity
             android:name=".src.main.toptools.GenreActivity"
-            android:theme="@style/Theme.Transparent" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            />
         <activity android:name=".src.main.single.LikeActivity" />
         <activity android:name=".src.main.single.SingleActivity">
         </activity>
@@ -59,13 +60,14 @@
         <activity android:name=".src.main.MainActivity" >
         </activity>
         <activity android:name=".src.signin.SignInActivity">
+        </activity>
+        <activity android:name=".src.splash.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.splash.SplashActivity" />
         <activity android:name=".src.profile.ProfileActivity">
         </activity>
     </application>

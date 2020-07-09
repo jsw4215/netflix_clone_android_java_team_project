@@ -2,9 +2,11 @@ package com.daniel.app.netfilx_clone.src.register;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,6 +39,7 @@ public class RegisterActivity3 extends BaseActivity implements RegisterActivityV
         mRegBtnNext = findViewById(R.id.reg_btn_next);
         mEmailIn = findViewById(R.id.reg_et_email_inside);
         mPasswordIn = findViewById(R.id.reg_et_pw_inside);
+       
 
         TextView TvLogin = findViewById(R.id.adv_tv_login);
         TvLogin.setOnClickListener(new View.OnClickListener() {

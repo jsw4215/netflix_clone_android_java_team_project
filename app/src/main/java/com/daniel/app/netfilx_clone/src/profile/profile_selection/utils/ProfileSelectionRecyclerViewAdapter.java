@@ -62,7 +62,9 @@ public class ProfileSelectionRecyclerViewAdapter extends RecyclerView.Adapter<Re
                 @Override
                 public void onClick(View v) {
                     Position = getAdapterPosition();
+                    Log.d(TAG, "onClick: 이미지아이디" + ((ProfileSelectionActivity) mContext).getIntent().getStringExtra("calling_activity"));
                     if(((ProfileSelectionActivity) mContext).getIntent().hasExtra("calling_activity")){
+                        Log.d(TAG, "onClick: " + ((ProfileSelectionActivity) mContext).getIntent().getStringExtra("calling_activity"));
                     Intent intent = new Intent(mContext, ProfileAddActivity.class);
                     intent.putExtra("imgUrl",mList.get(Position).getProfileImgUrl());
                     intent.putExtra("imgId",mList.get(Position).getProfileImgId());

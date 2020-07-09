@@ -44,7 +44,6 @@ public class BottomNavigationViewHelper {
                         context.startActivity(intent2);
                         callingActivity.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         break;
-
                     case R.id.navigation_coming_soon:
                         Intent intent3 = new Intent(context, ComingSoonActivity.class);
                         context.startActivity(intent3);

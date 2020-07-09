@@ -84,6 +84,7 @@ public class ProfileAddActivity extends BaseActivity implements ProfileActivityV
                 Intent intent = new Intent(ProfileAddActivity.this, ProfileSelectionActivity.class);
                 intent.putExtra("calling_activity","profile_add_activity");
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -92,7 +93,9 @@ public class ProfileAddActivity extends BaseActivity implements ProfileActivityV
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileAddActivity.this, ProfileSelectionActivity.class);
+                intent.putExtra("calling_activity","profile_add_activity");
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -101,7 +104,9 @@ public class ProfileAddActivity extends BaseActivity implements ProfileActivityV
         mIvBackArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ProfileAddActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();
             }
         });
@@ -119,10 +124,12 @@ public class ProfileAddActivity extends BaseActivity implements ProfileActivityV
 
     public void setImg(String imgUrl){
 
-        new DownloadImageTask(mIvProfile).execute(imgUrl);
+        if(imgUrl!=null) {
 
-        mImgUrl = imgUrl;
+            new DownloadImageTask(mIvProfile).execute(imgUrl);
 
+            mImgUrl = imgUrl;
+        }
     }
 
     @Override
@@ -139,7 +146,7 @@ public class ProfileAddActivity extends BaseActivity implements ProfileActivityV
         Intent intent = new Intent(ProfileAddActivity.this, ProfileActivity.class);
         intent.putExtra("imgUrl",mImgUrl);
         startActivity(intent);
-        finish();
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     @Override

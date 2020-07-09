@@ -2,31 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@android:color/transparent"
-    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#E6000000"
+    android:orientation="vertical"
     tools:context=".src.main.toptools.GenreActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_rv_genre"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_rv_genre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
 
-    <ImageView
-        android:id="@+id/genre_btn_close"
-        android:layout_width="72dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="70dp"
-        android:src="@drawable/x_mark_white"
-        android:textSize="30sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingTop="60dp"
+            android:background="@drawable/gradient_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <ImageView
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:id="@+id/genre_btn_close"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:src="@drawable/x_mark_white"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
 

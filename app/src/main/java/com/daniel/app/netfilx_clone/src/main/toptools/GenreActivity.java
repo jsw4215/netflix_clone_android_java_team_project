@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.daniel.app.netfilx_clone.R;
+import com.daniel.app.netfilx_clone.src.BaseActivity;
 import com.daniel.app.netfilx_clone.src.main.toptools.utils.RecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -44,7 +45,6 @@ public class GenreActivity extends Activity {
         //데이터 초기화
         mGenreList.clear();
         Intent intent = getIntent();
-
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
@@ -90,6 +90,7 @@ public class GenreActivity extends Activity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -106,7 +107,9 @@ public class GenreActivity extends Activity {
 
     private void addTVProgramGenre(){
 
-        mGenreList.add("전체 장르");
+        mGenreList.add("");
+        mGenreList.add("");
+        mGenreList.add("");
         mGenreList.add("저장 가능");
         mGenreList.add("한국 드라마");
         mGenreList.add("미국 드라마");
@@ -132,6 +135,8 @@ public class GenreActivity extends Activity {
 
     private void addMovieGenre(){
 
+        mGenreList.add("");
+        mGenreList.add("");
         mGenreList.add("전체 장르");
         mGenreList.add("저장 가능");
         mGenreList.add("한국");
