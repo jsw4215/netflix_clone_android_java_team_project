@@ -19,7 +19,7 @@
 
 <h3><b>🎞 인터뷰영상 바로가기 🎞</b></h3>
 
-[![Video Label](https://user-images.githubusercontent.com/46555489/161837676-5a341ff3-5746-47e3-9695-ed2311156346.jpg)](https://www.youtube.com/watch?v=g5BH0facgPc)
+[![Video Label](<img src="https://user-images.githubusercontent.com/46555489/161837676-5a341ff3-5746-47e3-9695-ed2311156346.jpg" alt="프로필 이미지" width="200px"/>)](https://www.youtube.com/watch?v=g5BH0facgPc)
 
 ---
 
