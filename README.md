@@ -34,6 +34,7 @@
 <img src="https://img.shields.io/badge/eventBus-181717?style=for-the-badge&logo=eventBus&logoColor=white">
 <img src="https://img.shields.io/badge/RxJava-181717?style=for-the-badge&logo=RxJava&logoColor=white">
 <img src="https://img.shields.io/badge/retrofit-181717?style=for-the-badge&logo=retrofit&logoColor=white">
+<img src="https://img.shields.io/badge/Glide-61DAFB?style=for-the-badge&logo=Glide&logoColor=white">
 </br>
 <img src="https://img.shields.io/badge/AndroidStudio-F80000?style=for-the-badge&logo=AndroidStudio&logoColor=white">
 <img src="https://img.shields.io/badge/Preference-61DAFB?style=for-the-badge&logo=Preference&logoColor=white">
